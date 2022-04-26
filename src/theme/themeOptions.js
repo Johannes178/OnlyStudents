@@ -9,12 +9,12 @@ const themeOptions = {
     },
   },
   typography: {
-    fontFamily: "Lato",
+    fontFamily: "Syne",
     body1: {
-      fontFamily: "Droid Sans",
+      fontFamily: "Syne",
     },
     body2: {
-      fontFamily: "Droid Sans",
+      fontFamily: "Syne",
     },
   },
   shape: {

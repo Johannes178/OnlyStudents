@@ -25,8 +25,8 @@ const App = () => {
           <Container maxWidth="lg">
             <Nav />
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/single" element={<Single />} />
               <Route path="/logout" element={<Logout />} />
