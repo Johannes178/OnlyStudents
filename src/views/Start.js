@@ -1,15 +1,13 @@
-import MediaTable from "../components/MediaTable";
 import { Typography } from "@mui/material";
 
-const Home = () => {
+const Start = () => {
   return (
     <>
       <Typography component="h1" variant="h2">
-        Home
+        Start
       </Typography>
-      <MediaTable />
     </>
   );
 };
 
-export default Home;
+export default Start;

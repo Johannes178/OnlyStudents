@@ -14,7 +14,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MediaContext } from "../contexts/MediaContext";
 import { useUser } from "../hooks/ApiHooks";
-import { Home, AccountCircle, CloudUpload, Folder } from "@mui/icons-material";
+import { AccountCircle, CloudUpload, Folder } from "@mui/icons-material";
 
 const Nav = () => {
   const { user, setUser } = useContext(MediaContext);
@@ -40,22 +40,22 @@ const Nav = () => {
   console.log(user, open);
 
   return (
-    //home
+    // huutiset
     <Box>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             OnlyStudents
           </Typography>
-          <Button component={Link} to={user ? "/logout" : "/login"} color="inherit">
-            {user ? "Logout" : "Login"}
-          </Button>
           <Button
             component={Link}
-            to={user ? "/" : "/"}
+            to={user ? "/logout" : "/login"}
             color="inherit"
           >
-            {user ? "Home" : "Home"}
+            {user ? "Logout" : "Login"}
+          </Button>
+          <Button component={Link} to={user ? "/" : "/"} color="inherit">
+            {user ? "Huutiset" : "Huutiset"}
           </Button>
           <Button
             component={Link}
@@ -77,11 +77,11 @@ const Nav = () => {
             setOpen(!open);
           }}
         >
-          <ListItemButton component={Link} to={"/home"}>
+          <ListItemButton component={Link} to={"/huutiset"}>
             <ListItemIcon>
-              <Home />
+              <Huutiset />
             </ListItemIcon>
-            <ListItemText primary="Home" />
+            <ListItemText primary="Huutiset" />
           </ListItemButton>
           {user && (
             <>

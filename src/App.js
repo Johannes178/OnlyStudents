@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Nav";
 import { MediaProvider } from "./contexts/MediaContext";
-import Home from "./views/Home";
+import Start from "./views/Start";
+import Huutiset from "./views/Huutiset";
 import Login from "./views/Login";
 import Logout from "./views/Logout";
 import Profile from "./views/Profile";
@@ -25,7 +26,8 @@ const App = () => {
           <Container maxWidth="lg">
             <Nav />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Start />} />
+              <Route path="/huutiset" element={<Huutiset />} />
               <Route path="/login" element={<Login />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/single" element={<Single />} />
