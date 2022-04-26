@@ -55,7 +55,7 @@ const Nav = () => {
           >
             {user ? "Logout" : "Login"}
           </Button>
-          <Button component={Link} to={user ? "/" : "/"} color="inherit">
+          <Button component={Link} to={user ? "/huutiset" : "/huutiset"} color="inherit">
             {user ? "Huutiset" : "Huutiset"}
           </Button>
           <Button
