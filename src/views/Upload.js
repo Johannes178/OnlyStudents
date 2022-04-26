@@ -63,7 +63,7 @@ const Upload = () => {
         },
         token
       );
-      confirm(tagData.message) && navigate("/home");
+      confirm(tagData.message) && navigate("/huutiset");
     } catch (err) {
       alert(err.message);
     }
