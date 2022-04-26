@@ -1,5 +1,5 @@
-import MediaTable from '../components/MediaTable';
-import {Typography} from '@mui/material';
+import MediaTable from "../components/MediaTable";
+import { Typography } from "@mui/material";
 
 const Home = () => {
   return (

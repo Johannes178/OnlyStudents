@@ -1,7 +1,7 @@
-import {useState} from 'react';
-import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
-import {Button} from '@mui/material';
+import { useState } from "react";
+import LoginForm from "../components/LoginForm";
+import RegisterForm from "../components/RegisterForm";
+import { Button } from "@mui/material";
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
@@ -17,7 +17,7 @@ const Login = () => {
           setToggle(!toggle);
         }}
       >
-        {toggle ? 'Register' : 'Login'}
+        {toggle ? "Register" : "Login"}
       </Button>
     </>
   );

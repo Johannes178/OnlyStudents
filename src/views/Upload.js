@@ -4,20 +4,20 @@ import {
   Grid,
   Slider,
   Typography,
-} from '@mui/material';
-import {useMedia, useTag} from '../hooks/ApiHooks';
-import {useNavigate} from 'react-router-dom';
-import useForm from '../hooks/FormHooks';
-import {useState, useEffect} from 'react';
-import {appID} from '../utils/variables';
-import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
-import BackButton from '../components/BackButton';
+} from "@mui/material";
+import { useMedia, useTag } from "../hooks/ApiHooks";
+import { useNavigate } from "react-router-dom";
+import useForm from "../hooks/FormHooks";
+import { useState, useEffect } from "react";
+import { appID } from "../utils/variables";
+import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
+import BackButton from "../components/BackButton";
 
 const Upload = () => {
-  const [preview, setPreview] = useState('logo192.png');
+  const [preview, setPreview] = useState("logo192.png");
   const alkuarvot = {
-    title: '',
-    description: '',
+    title: "",
+    description: "",
     file: null,
   };
 
@@ -29,32 +29,32 @@ const Upload = () => {
   };
 
   const validators = {
-    title: ['required', 'minStringLength: 3'],
-    description: ['minStringLength: 5'],
+    title: ["required", "minStringLength: 3"],
+    description: ["minStringLength: 5"],
   };
 
   const errorMessages = {
-    username: ['required field', 'minimum 3 characters'],
-    description: ['minimum 5 characters'],
+    username: ["required field", "minimum 3 characters"],
+    description: ["minimum 5 characters"],
   };
 
-  const {postMedia, loading} = useMedia();
-  const {postTag} = useTag();
+  const { postMedia, loading } = useMedia();
+  const { postTag } = useTag();
   const navigate = useNavigate();
 
   const doUpload = async () => {
     try {
-      console.log('doUpload');
+      console.log("doUpload");
       // lisätään filtterit descriptioniin
       const desc = {
         description: inputs.description,
         filters: filterInputs,
       };
-      const token = localStorage.getItem('token');
+      const token = localStorage.getItem("token");
       const formdata = new FormData();
-      formdata.append('title', inputs.title);
-      formdata.append('description', JSON.stringify(desc));
-      formdata.append('file', inputs.file);
+      formdata.append("title", inputs.title);
+      formdata.append("description", JSON.stringify(desc));
+      formdata.append("file", inputs.file);
       const mediaData = await postMedia(formdata, token);
       const tagData = await postTag(
         {
@@ -63,26 +63,24 @@ const Upload = () => {
         },
         token
       );
-      confirm(tagData.message) && navigate('/home');
+      confirm(tagData.message) && navigate("/home");
     } catch (err) {
       alert(err.message);
     }
   };
 
-  const {inputs, handleInputChange, handleSubmit} = useForm(
+  const { inputs, handleInputChange, handleSubmit } = useForm(
     doUpload,
     alkuarvot
   );
 
-  const {inputs: filterInputs, handleInputChange: handleSliderChange} = useForm(
-    null,
-    filterarvot
-  );
+  const { inputs: filterInputs, handleInputChange: handleSliderChange } =
+    useForm(null, filterarvot);
 
   useEffect(() => {
     if (inputs.file) {
       const reader = new FileReader();
-      reader.addEventListener('load', () => {
+      reader.addEventListener("load", () => {
         setPreview(reader.result);
       });
       reader.readAsDataURL(inputs.file);
@@ -151,7 +149,7 @@ const Upload = () => {
           <Grid item xs={12}>
             <img
               style={{
-                width: '100%',
+                width: "100%",
                 filter: `
               brightness(${filterInputs.brightness}%)
               contrast(${filterInputs.contrast}%)

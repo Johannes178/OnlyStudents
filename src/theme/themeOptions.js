@@ -1,20 +1,20 @@
 const themeOptions = {
   palette: {
-    type: 'light',
+    type: "light",
     primary: {
-      main: '#00104a',
+      main: "#00104a",
     },
     secondary: {
-      main: '#d60202',
+      main: "#d60202",
     },
   },
   typography: {
-    fontFamily: 'Lato',
+    fontFamily: "Lato",
     body1: {
-      fontFamily: 'Droid Sans',
+      fontFamily: "Droid Sans",
     },
     body2: {
-      fontFamily: 'Droid Sans',
+      fontFamily: "Droid Sans",
     },
   },
   shape: {
@@ -22,4 +22,4 @@ const themeOptions = {
   },
 };
 
-export {themeOptions};
+export { themeOptions };

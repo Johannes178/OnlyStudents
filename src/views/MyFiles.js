@@ -1,6 +1,6 @@
-import MediaTable from '../components/MediaTable';
-import {Typography} from '@mui/material';
-import BackButton from '../components/BackButton';
+import MediaTable from "../components/MediaTable";
+import { Typography } from "@mui/material";
+import BackButton from "../components/BackButton";
 
 const MyFiles = () => {
   return (
