@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { MediaContext } from "../contexts/MediaContext";
 import { useUser } from "../hooks/ApiHooks";
 import { AccountCircle, CloudUpload, Folder } from "@mui/icons-material";
+import Huutiset from "../views/Huutiset";
 
 const Nav = () => {
   const { user, setUser } = useContext(MediaContext);
