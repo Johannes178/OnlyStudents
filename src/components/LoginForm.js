@@ -1,34 +1,37 @@
-import {Button, Grid, TextField, Typography} from '@mui/material';
-import {useContext} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {MediaContext} from '../contexts/MediaContext';
-import {useLogin} from '../hooks/ApiHooks';
-import useForm from '../hooks/FormHooks';
+import { Button, Grid, TextField, Typography } from "@mui/material";
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { MediaContext } from "../contexts/MediaContext";
+import { useLogin } from "../hooks/ApiHooks";
+import useForm from "../hooks/FormHooks";
 
 const LoginForm = () => {
   // eslint-disable-next-line no-unused-vars
-  const {user, setUser} = useContext(MediaContext);
+  const { user, setUser } = useContext(MediaContext);
   const alkuarvot = {
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   };
 
-  const {postLogin} = useLogin();
+  const { postLogin } = useLogin();
   const navigate = useNavigate();
 
   const doLogin = async () => {
-    console.log('doLogin');
+    console.log("doLogin");
     try {
       const userData = await postLogin(inputs);
-      localStorage.setItem('token', userData.token);
+      localStorage.setItem("token", userData.token);
       setUser(userData.user);
-      navigate('/home');
+      navigate("/home");
     } catch (err) {
       alert(err.message);
     }
   };
 
-  const {inputs, handleInputChange, handleSubmit} = useForm(doLogin, alkuarvot);
+  const { inputs, handleInputChange, handleSubmit } = useForm(
+    doLogin,
+    alkuarvot
+  );
   console.log(inputs);
   return (
     <Grid container>

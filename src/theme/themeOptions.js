@@ -1,20 +1,20 @@
 const themeOptions = {
   palette: {
-    type: 'light',
+    type: "light",
     primary: {
-      main: '#00104a',
+      main: "#00104a",
     },
     secondary: {
-      main: '#d60202',
+      main: "#d60202",
     },
   },
   typography: {
-    fontFamily: 'Lato',
+    fontFamily: "Syne",
     body1: {
-      fontFamily: 'Droid Sans',
+      fontFamily: "Syne",
     },
     body2: {
-      fontFamily: 'Droid Sans',
+      fontFamily: "Syne",
     },
   },
   shape: {
@@ -22,4 +22,4 @@ const themeOptions = {
   },
 };
 
-export {themeOptions};
+export { themeOptions };

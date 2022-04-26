@@ -3,35 +3,33 @@ import {
   Box,
   Button,
   Drawer,
-  IconButton,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Toolbar,
   Typography,
-} from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import {useContext, useEffect, useState} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {MediaContext} from '../contexts/MediaContext';
-import {useUser} from '../hooks/ApiHooks';
-import {Home, AccountCircle, CloudUpload, Folder} from '@mui/icons-material';
+} from "@mui/material";
+import { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { MediaContext } from "../contexts/MediaContext";
+import { useUser } from "../hooks/ApiHooks";
+import { Home, AccountCircle, CloudUpload, Folder } from "@mui/icons-material";
 
 const Nav = () => {
-  const {user, setUser} = useContext(MediaContext);
+  const { user, setUser } = useContext(MediaContext);
   const [open, setOpen] = useState(false);
-  const {getUser} = useUser();
+  const { getUser } = useUser();
   const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
-      const userData = await getUser(localStorage.getItem('token'));
+      const userData = await getUser(localStorage.getItem("token"));
       console.log(userData);
       setUser(userData);
     } catch (err) {
       setUser(null);
-      navigate('/');
+      navigate("/");
     }
   };
 
@@ -42,26 +40,29 @@ const Nav = () => {
   console.log(user, open);
 
   return (
+    //home
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{mr: 2}}
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-            MyApp
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            OnlyStudents
           </Typography>
-          <Button component={Link} to={user ? '/logout' : '/'} color="inherit">
-            {user ? 'Logout' : 'Login'}
+          <Button component={Link} to={user ? "/logout" : "/login"} color="inherit">
+            {user ? "Logout" : "Login"}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? "/" : "/"}
+            color="inherit"
+          >
+            {user ? "Home" : "Home"}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? "/about" : "/about"}
+            color="inherit"
+          >
+            {user ? "About" : "About"}
           </Button>
         </Toolbar>
       </AppBar>
@@ -76,7 +77,7 @@ const Nav = () => {
             setOpen(!open);
           }}
         >
-          <ListItemButton component={Link} to={'/home'}>
+          <ListItemButton component={Link} to={"/home"}>
             <ListItemIcon>
               <Home />
             </ListItemIcon>
