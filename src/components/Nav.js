@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   Drawer,
-  IconButton,
   List,
   ListItemButton,
   ListItemIcon,
@@ -11,7 +10,6 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { MediaContext } from "../contexts/MediaContext";
@@ -42,26 +40,29 @@ const Nav = () => {
   console.log(user, open);
 
   return (
+    //home
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            MyApp
+            OnlyStudents
           </Typography>
-          <Button component={Link} to={user ? "/logout" : "/"} color="inherit">
+          <Button component={Link} to={user ? "/logout" : "/login"} color="inherit">
             {user ? "Logout" : "Login"}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? "/" : "/"}
+            color="inherit"
+          >
+            {user ? "Home" : "Home"}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? "/about" : "/about"}
+            color="inherit"
+          >
+            {user ? "About" : "About"}
           </Button>
         </Toolbar>
       </AppBar>
