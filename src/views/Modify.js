@@ -4,14 +4,14 @@ import {
   Grid,
   Slider,
   Typography,
-} from "@mui/material";
-import { useMedia } from "../hooks/ApiHooks";
-import { useNavigate, useLocation } from "react-router-dom";
-import useForm from "../hooks/FormHooks";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { safeParseJson } from "../utils/functions";
-import { mediaUrl } from "../utils/variables";
-import BackButton from "../components/BackButton";
+} from '@mui/material';
+import { useMedia } from '../hooks/ApiHooks';
+import { useNavigate, useLocation } from 'react-router-dom';
+import useForm from '../hooks/FormHooks';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { safeParseJson } from '../utils/functions';
+import { mediaUrl } from '../utils/variables';
+import BackButton from '../components/BackButton';
 
 const Modify = () => {
   const location = useLocation();
@@ -34,13 +34,13 @@ const Modify = () => {
   };
 
   const validators = {
-    title: ["required", "minStringLength: 3"],
-    description: ["minStringLength: 5"],
+    title: ['required', 'minStringLength: 3'],
+    description: ['minStringLength: 5'],
   };
 
   const errorMessages = {
-    username: ["required field", "minimum 3 characters"],
-    description: ["minimum 5 characters"],
+    username: ['required field', 'minimum 3 characters'],
+    description: ['minimum 5 characters'],
   };
 
   const { putMedia, loading } = useMedia();
@@ -48,7 +48,7 @@ const Modify = () => {
 
   const doModify = async () => {
     try {
-      console.log("doModify");
+      console.log('doModify');
       // lisätään filtterit descriptioniin
       const desc = {
         description: inputs.description,
@@ -60,7 +60,7 @@ const Modify = () => {
         description: JSON.stringify(desc),
       };
 
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const mediaData = await putMedia(file.file_id, data, token);
       confirm(mediaData.message) && navigate(-1);
     } catch (err) {
@@ -83,7 +83,7 @@ const Modify = () => {
       <Grid container>
         <Grid item xs={12}>
           <BackButton />
-          <Typography component="h1" variant="h2" gutterBottom>
+          <Typography component='h1' variant='h2' gutterBottom>
             Modify
           </Typography>
         </Grid>
@@ -92,8 +92,8 @@ const Modify = () => {
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
               fullWidth
-              placeholder="title"
-              name="title"
+              placeholder='title'
+              name='title'
               onChange={handleInputChange}
               value={inputs.title}
               validators={validators.title}
@@ -101,8 +101,8 @@ const Modify = () => {
             />
             <TextValidator
               fullWidth
-              placeholder="description"
-              name="description"
+              placeholder='description'
+              name='description'
               onChange={handleInputChange}
               value={inputs.description}
               validators={validators.description}
@@ -114,9 +114,9 @@ const Modify = () => {
             ) : (
               <Button
                 fullWidth
-                color="primary"
-                type="submit"
-                variant="contained"
+                color='primary'
+                type='submit'
+                variant='contained'
               >
                 Save
               </Button>
@@ -129,7 +129,7 @@ const Modify = () => {
           <Grid item xs={12}>
             <img
               style={{
-                width: "100%",
+                width: '100%',
                 filter: `
               brightness(${filterInputs.brightness}%)
               contrast(${filterInputs.contrast}%)
@@ -138,18 +138,18 @@ const Modify = () => {
               `,
               }}
               src={mediaUrl + file.filename}
-              alt="preview"
+              alt='preview'
             />
           </Grid>
           <Grid container>
             <Grid item xs={12}>
               <Typography>Brightness</Typography>
               <Slider
-                name="brightness"
+                name='brightness'
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay="on"
+                valueLabelDisplay='on'
                 onChange={handleSliderChange}
                 value={filterInputs.brightness}
               />
@@ -157,11 +157,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Contrast</Typography>
               <Slider
-                name="contrast"
+                name='contrast'
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay="on"
+                valueLabelDisplay='on'
                 onChange={handleSliderChange}
                 value={filterInputs.contrast}
               />
@@ -169,11 +169,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Saturation</Typography>
               <Slider
-                name="saturation"
+                name='saturation'
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay="on"
+                valueLabelDisplay='on'
                 onChange={handleSliderChange}
                 value={filterInputs.saturation}
               />
@@ -181,11 +181,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Sepia</Typography>
               <Slider
-                name="sepia"
+                name='sepia'
                 min={0}
                 max={100}
                 step={1}
-                valueLabelDisplay="on"
+                valueLabelDisplay='on'
                 onChange={handleSliderChange}
                 value={filterInputs.sepia}
               />

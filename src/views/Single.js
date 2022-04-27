@@ -1,5 +1,5 @@
-import { useLocation } from "react-router-dom";
-import { mediaUrl } from "../utils/variables";
+import { useLocation } from 'react-router-dom';
+import { mediaUrl } from '../utils/variables';
 import {
   Card,
   CardContent,
@@ -9,11 +9,11 @@ import {
   ListItem,
   ListItemAvatar,
   Avatar,
-} from "@mui/material";
-import { safeParseJson } from "../utils/functions";
-import BackButton from "../components/BackButton";
-import { useEffect, useState } from "react";
-import { useTag } from "../hooks/ApiHooks";
+} from '@mui/material';
+import { safeParseJson } from '../utils/functions';
+import BackButton from '../components/BackButton';
+import { useEffect, useState } from 'react';
+import { useTag } from '../hooks/ApiHooks';
 
 const Single = () => {
   const [avatar, setAvatar] = useState({});
@@ -35,7 +35,7 @@ const Single = () => {
   const fetchAvatar = async () => {
     try {
       if (file) {
-        const avatars = await getTag("avatar_" + file.user_id);
+        const avatars = await getTag('avatar_' + file.user_id);
         const ava = avatars.pop();
         ava.filename = mediaUrl + ava.filename;
         setAvatar(ava);
@@ -54,18 +54,18 @@ const Single = () => {
   return (
     <>
       <BackButton />
-      <Typography component="h1" variant="h2">
+      <Typography component='h1' variant='h2'>
         {file.title}
       </Typography>
       <Card>
         <CardMedia
-          component={file.media_type === "image" ? "img" : file.media_type}
+          component={file.media_type === 'image' ? 'img' : file.media_type}
           controls={true}
           poster={mediaUrl + file.screenshot}
           src={mediaUrl + file.filename}
           alt={file.title}
           sx={{
-            height: "60vh",
+            height: '60vh',
             filter: `
           brightness(${filters.brightness}%)
           contrast(${filters.contrast}%)
@@ -79,9 +79,9 @@ const Single = () => {
           <List>
             <ListItem>
               <ListItemAvatar>
-                <Avatar variant={"circle"} src={avatar.filename} />
+                <Avatar variant={'circle'} src={avatar.filename} />
               </ListItemAvatar>
-              <Typography variant="subtitle2">{file.user_id}</Typography>
+              <Typography variant='subtitle2'>{file.user_id}</Typography>
             </ListItem>
           </List>
         </CardContent>

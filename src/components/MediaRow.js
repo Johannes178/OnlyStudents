@@ -1,20 +1,20 @@
-import { Button, ImageListItem, ImageListItemBar } from "@mui/material";
-import PropTypes from "prop-types";
-import { useContext } from "react";
-import { MediaContext } from "../contexts/MediaContext";
-import { Link } from "react-router-dom";
-import { mediaUrl } from "../utils/variables";
-import { safeParseJson } from "../utils/functions";
+import { Button, ImageListItem, ImageListItemBar } from '@mui/material';
+import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import { MediaContext } from '../contexts/MediaContext';
+import { Link } from 'react-router-dom';
+import { mediaUrl } from '../utils/variables';
+import { safeParseJson } from '../utils/functions';
 
 const MediaRow = ({ file, userId, deleteMedia }) => {
   const { update, setUpdate } = useContext(MediaContext);
   const doDelete = () => {
-    const ok = confirm("Do juu delte?");
+    const ok = confirm('Do juu delte?');
     if (ok) {
       try {
         const deleteInfo = deleteMedia(
           file.file_id,
-          localStorage.getItem("token")
+          localStorage.getItem('token')
         );
         if (deleteInfo) {
           setUpdate(!update);
@@ -38,9 +38,9 @@ const MediaRow = ({ file, userId, deleteMedia }) => {
   return (
     <ImageListItem key={file.file_id}>
       <img
-        src={file.thumbnails ? mediaUrl + file.thumbnails.w320 : "logo512.png"}
+        src={file.thumbnails ? mediaUrl + file.thumbnails.w320 : 'logo512.png'}
         alt={file.title}
-        loading="lazy"
+        loading='lazy'
         style={{
           filter: `
         brightness(${filters.brightness}%)
@@ -54,9 +54,9 @@ const MediaRow = ({ file, userId, deleteMedia }) => {
         actionIcon={
           <>
             <Button
-              variant="contained"
+              variant='contained'
               component={Link}
-              to={"/single"}
+              to={'/single'}
               state={{ file }}
             >
               View
@@ -64,14 +64,14 @@ const MediaRow = ({ file, userId, deleteMedia }) => {
             {userId === file.user_id && (
               <>
                 <Button
-                  variant="contained"
+                  variant='contained'
                   component={Link}
-                  to={"/modify"}
+                  to={'/modify'}
                   state={{ file }}
                 >
                   Edit
                 </Button>
-                <Button variant="contained" onClick={doDelete}>
+                <Button variant='contained' onClick={doDelete}>
                   Delete
                 </Button>
               </>

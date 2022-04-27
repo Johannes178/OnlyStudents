@@ -1,7 +1,7 @@
-import { useState } from "react";
-import LoginForm from "../components/LoginForm";
-import RegisterForm from "../components/RegisterForm";
-import { Button } from "@mui/material";
+import { useState } from 'react';
+import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
+import { Button } from '@mui/material';
 
 const Login = () => {
   const [toggle, setToggle] = useState(true);
@@ -11,13 +11,13 @@ const Login = () => {
       OR
       <Button
         fullWidth
-        color="primary"
-        variant="contained"
+        color='primary'
+        variant='contained'
         onClick={() => {
           setToggle(!toggle);
         }}
       >
-        {toggle ? "Register" : "Login"}
+        {toggle ? 'Register' : 'Login'}
       </Button>
     </>
   );

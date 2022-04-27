@@ -1,20 +1,20 @@
 const themeOptions = {
   palette: {
-    type: "light",
+    type: 'light',
     primary: {
-      main: "#00104a",
+      main: '#00104a',
     },
     secondary: {
-      main: "#d60202",
+      main: '#d60202',
     },
   },
   typography: {
-    fontFamily: "Syne",
+    fontFamily: 'Syne',
     body1: {
-      fontFamily: "Syne",
+      fontFamily: 'Syne',
     },
     body2: {
-      fontFamily: "Syne",
+      fontFamily: 'Syne',
     },
   },
   shape: {

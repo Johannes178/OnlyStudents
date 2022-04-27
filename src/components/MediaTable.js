@@ -1,10 +1,10 @@
-import PropTypes from "prop-types";
-import { CircularProgress, ImageList } from "@mui/material";
-import { useMedia } from "../hooks/ApiHooks";
-import { useWindowSize } from "../hooks/WindowHooks";
-import MediaRow from "./MediaRow";
-import { useContext } from "react";
-import { MediaContext } from "../contexts/MediaContext";
+import PropTypes from 'prop-types';
+import { CircularProgress, ImageList } from '@mui/material';
+import { useMedia } from '../hooks/ApiHooks';
+import { useWindowSize } from '../hooks/WindowHooks';
+import MediaRow from './MediaRow';
+import { useContext } from 'react';
+import { MediaContext } from '../contexts/MediaContext';
 
 const MediaTable = ({ allFiles = true }) => {
   const { user } = useContext(MediaContext);
@@ -20,7 +20,7 @@ const MediaTable = ({ allFiles = true }) => {
         <CircularProgress />
       ) : (
         <ImageList
-          variant="masonry"
+          variant='masonry'
           cols={windowSize.width > 768 ? 3 : 2}
           gap={8}
         >
