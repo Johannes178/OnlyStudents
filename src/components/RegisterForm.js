@@ -1,41 +1,41 @@
 // eslint-disable-next-line no-unused-vars
-import PropTypes from "prop-types";
-import { useUser } from "../hooks/ApiHooks";
-import useForm from "../hooks/FormHooks";
-import { Grid } from "@mui/material";
-import { Typography } from "@mui/material";
-import { Button } from "@mui/material";
-import { TextValidator, ValidatorForm } from "react-material-ui-form-validator";
-import { useEffect } from "react";
+import PropTypes from 'prop-types';
+import {useUser} from '../hooks/ApiHooks';
+import useForm from '../hooks/FormHooks';
+import {Grid} from '@mui/material';
+import {Typography} from '@mui/material';
+import {Button} from '@mui/material';
+import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
+import {useEffect} from 'react';
 
 const RegisterForm = (setToggle) => {
   const alkuarvot = {
-    username: "",
-    password: "",
-    confirm: "",
-    email: "",
-    full_name: "",
+    username: '',
+    password: '',
+    confirm: '',
+    email: '',
+    full_name: '',
   };
 
   const validators = {
-    username: ["required", "minStringLength: 3", "isAvailable"],
-    password: ["required", "minStringLength: 8"],
-    confirm: ["required", "isPasswordMatch"],
-    email: ["required", "isEmail"],
-    full_name: ["minStringLength: 2"],
+    username: ['required', 'minStringLength: 3', 'isAvailable'],
+    password: ['required', 'minStringLength: 8'],
+    confirm: ['required', 'isPasswordMatch'],
+    email: ['required', 'isEmail'],
+    full_name: ['minStringLength: 2'],
   };
   const errorMessages = {
-    username: ["required field", "min 3 characters", "username not available"],
-    password: ["required field", "min 8 characters"],
-    confirm: ["required field", "passwords do not match"],
-    email: ["required field", "must be email"],
-    full_name: ["min 2 characters"],
+    username: ['required field', 'min 3 characters', 'username not available'],
+    password: ['required field', 'min 8 characters'],
+    confirm: ['required field', 'passwords do not match'],
+    email: ['required field', 'must be email'],
+    full_name: ['min 2 characters'],
   };
 
-  const { postUser, getUsername } = useUser();
+  const {postUser, getUsername} = useUser();
 
   const doRegister = async () => {
-    console.log("doRegister");
+    console.log('doRegister');
     try {
       // const checkUser = await getUsername(inputs.username);
       // if (checkUser) {}
@@ -51,13 +51,13 @@ const RegisterForm = (setToggle) => {
     }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
+  const {inputs, handleInputChange, handleSubmit} = useForm(
     doRegister,
     alkuarvot
   );
 
   useEffect(() => {
-    ValidatorForm.addValidationRule("isAvailable", async (value) => {
+    ValidatorForm.addValidationRule('isAvailable', async (value) => {
       try {
         return await getUsername(value);
       } catch (err) {
@@ -65,7 +65,7 @@ const RegisterForm = (setToggle) => {
       }
     });
 
-    ValidatorForm.addValidationRule("isPasswordMatch", (value) => {
+    ValidatorForm.addValidationRule('isPasswordMatch', (value) => {
       // if (value !== inputs.password) {
       //   return false;
       // }
@@ -74,7 +74,7 @@ const RegisterForm = (setToggle) => {
     });
 
     return () => {
-      ValidatorForm.addValidationRule("isAvailable");
+      ValidatorForm.addValidationRule('isAvailable');
     };
   }, [inputs]);
 

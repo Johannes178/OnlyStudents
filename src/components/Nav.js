@@ -9,28 +9,28 @@ import {
   ListItemText,
   Toolbar,
   Typography,
-} from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { MediaContext } from "../contexts/MediaContext";
-import { useUser } from "../hooks/ApiHooks";
-import { AccountCircle, CloudUpload, Folder } from "@mui/icons-material";
-import Huutiset from "../views/Huutiset";
+} from '@mui/material';
+import {useContext, useEffect, useState} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {MediaContext} from '../contexts/MediaContext';
+import {useUser} from '../hooks/ApiHooks';
+import {AccountCircle, CloudUpload, Folder} from '@mui/icons-material';
+import Huutiset from '../views/Huutiset';
 
 const Nav = () => {
-  const { user, setUser } = useContext(MediaContext);
+  const {user, setUser} = useContext(MediaContext);
   const [open, setOpen] = useState(false);
-  const { getUser } = useUser();
+  const {getUser} = useUser();
   const navigate = useNavigate();
 
   const fetchUser = async () => {
     try {
-      const userData = await getUser(localStorage.getItem("token"));
+      const userData = await getUser(localStorage.getItem('token'));
       console.log(userData);
       setUser(userData);
     } catch (err) {
       setUser(null);
-      navigate("/");
+      navigate('/');
     }
   };
 
@@ -45,25 +45,29 @@ const Nav = () => {
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
             OnlyStudents
           </Typography>
           <Button
             component={Link}
-            to={user ? "/logout" : "/login"}
+            to={user ? '/logout' : '/login'}
             color="inherit"
           >
-            {user ? "Logout" : "Login"}
-          </Button>
-          <Button component={Link} to={user ? "/huutiset" : "/huutiset"} color="inherit">
-            {user ? "Huutiset" : "Huutiset"}
+            {user ? 'Logout' : 'Login'}
           </Button>
           <Button
             component={Link}
-            to={user ? "/about" : "/about"}
+            to={user ? '/huutiset' : '/huutiset'}
             color="inherit"
           >
-            {user ? "About" : "About"}
+            {user ? 'Huutiset' : 'Huutiset'}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? '/about' : '/about'}
+            color="inherit"
+          >
+            {user ? 'About' : 'About'}
           </Button>
         </Toolbar>
       </AppBar>
@@ -78,7 +82,7 @@ const Nav = () => {
             setOpen(!open);
           }}
         >
-          <ListItemButton component={Link} to={"/huutiset"}>
+          <ListItemButton component={Link} to={'/huutiset'}>
             <ListItemIcon>
               <Huutiset />
             </ListItemIcon>

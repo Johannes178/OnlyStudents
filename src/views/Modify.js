@@ -4,19 +4,19 @@ import {
   Grid,
   Slider,
   Typography,
-} from "@mui/material";
-import { useMedia } from "../hooks/ApiHooks";
-import { useNavigate, useLocation } from "react-router-dom";
-import useForm from "../hooks/FormHooks";
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { safeParseJson } from "../utils/functions";
-import { mediaUrl } from "../utils/variables";
-import BackButton from "../components/BackButton";
+} from '@mui/material';
+import {useMedia} from '../hooks/ApiHooks';
+import {useNavigate, useLocation} from 'react-router-dom';
+import useForm from '../hooks/FormHooks';
+import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import {safeParseJson} from '../utils/functions';
+import {mediaUrl} from '../utils/variables';
+import BackButton from '../components/BackButton';
 
 const Modify = () => {
   const location = useLocation();
   const file = location.state.file;
-  const { description, filters } = safeParseJson(file.description) || {
+  const {description, filters} = safeParseJson(file.description) || {
     description: file.description,
     filters: {
       brightness: 100,
@@ -34,21 +34,21 @@ const Modify = () => {
   };
 
   const validators = {
-    title: ["required", "minStringLength: 3"],
-    description: ["minStringLength: 5"],
+    title: ['required', 'minStringLength: 3'],
+    description: ['minStringLength: 5'],
   };
 
   const errorMessages = {
-    username: ["required field", "minimum 3 characters"],
-    description: ["minimum 5 characters"],
+    username: ['required field', 'minimum 3 characters'],
+    description: ['minimum 5 characters'],
   };
 
-  const { putMedia, loading } = useMedia();
+  const {putMedia, loading} = useMedia();
   const navigate = useNavigate();
 
   const doModify = async () => {
     try {
-      console.log("doModify");
+      console.log('doModify');
       // lisätään filtterit descriptioniin
       const desc = {
         description: inputs.description,
@@ -60,7 +60,7 @@ const Modify = () => {
         description: JSON.stringify(desc),
       };
 
-      const token = localStorage.getItem("token");
+      const token = localStorage.getItem('token');
       const mediaData = await putMedia(file.file_id, data, token);
       confirm(mediaData.message) && navigate(-1);
     } catch (err) {
@@ -68,13 +68,15 @@ const Modify = () => {
     }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
+  const {inputs, handleInputChange, handleSubmit} = useForm(
     doModify,
     alkuarvot
   );
 
-  const { inputs: filterInputs, handleInputChange: handleSliderChange } =
-    useForm(null, filters);
+  const {inputs: filterInputs, handleInputChange: handleSliderChange} = useForm(
+    null,
+    filters
+  );
 
   console.log(inputs, filterInputs);
 
@@ -129,7 +131,7 @@ const Modify = () => {
           <Grid item xs={12}>
             <img
               style={{
-                width: "100%",
+                width: '100%',
                 filter: `
               brightness(${filterInputs.brightness}%)
               contrast(${filterInputs.contrast}%)
