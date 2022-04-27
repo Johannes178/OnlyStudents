@@ -41,7 +41,17 @@ const Start = () => {
         to={user ? '/login' : '/login'}
         color="primary"
         variant="contained"
-      ></Button>
+      >
+        REKISTERÖIDY
+      </Button>
+      <Button
+        component={Link}
+        to={user ? '/about' : '/about'}
+        color="primary"
+        variant="contained"
+      >
+        TIETOA MEISTÄ
+      </Button>
     </>
   );
 };
