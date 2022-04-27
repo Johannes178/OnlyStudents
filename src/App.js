@@ -7,6 +7,7 @@ import Start from './views/Start';
 import Huutiset from './views/Huutiset';
 import Login from './views/Login';
 import Logout from './views/Logout';
+import Rekisteröidy from './views/Register';
 import Profile from './views/Profile';
 import Single from './views/Single';
 import {themeOptions} from './theme/themeOptions';
@@ -14,6 +15,7 @@ import {ThemeProvider, createTheme} from '@mui/material/styles';
 import Upload from './views/Upload';
 import MyFiles from './views/MyFiles';
 import Modify from './views/Modify';
+import About from './views/About';
 
 const theme = createTheme(themeOptions);
 
@@ -29,6 +31,8 @@ const App = () => {
               <Route path="/" element={<Start />} />
               <Route path="/huutiset" element={<Huutiset />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/register" element={<Rekisteröidy />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/single" element={<Single />} />
               <Route path="/logout" element={<Logout />} />

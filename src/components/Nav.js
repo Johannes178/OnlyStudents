@@ -42,14 +42,15 @@ const Nav = () => {
 
   return (
     <Box>
-      <AppBar position="static">
+      <AppBar color="color4">
         <Toolbar>
           <Typography
             variant="h6"
             component={Link}
             to={user ? '/huutiset' : '/'}
-            color="inherit"
+            color="#FFFFFF"
             sx={{flexGrow: 1}}
+            style={{textDecoration: 'none'}}
           >
             OnlyStudents
           </Typography>

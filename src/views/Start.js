@@ -1,4 +1,4 @@
-import {Button} from '@mui/material';
+import {Button, Grid} from '@mui/material';
 import {useContext, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
@@ -28,30 +28,54 @@ const Start = () => {
 
   return (
     <>
-      <Button
-        component={Link}
-        to={user ? '/login' : '/login'}
-        color="primary"
-        variant="contained"
+      <Grid
+        container
+        spacing={0}
+        direction="row"
+        alignItems="center"
+        justifyContent="center"
+        style={{minHeight: '75vh'}}
       >
-        KIRJAUDU
-      </Button>
-      <Button
-        component={Link}
-        to={user ? '/login' : '/login'}
-        color="primary"
-        variant="contained"
-      >
-        REKISTERÖIDY
-      </Button>
-      <Button
-        component={Link}
-        to={user ? '/about' : '/about'}
-        color="primary"
-        variant="contained"
-      >
-        TIETOA MEISTÄ
-      </Button>
+        <Button
+          style={{
+            border: '0.2vh solid black',
+            minHeight: '5vh',
+            minWidth: '5vh',
+          }}
+          component={Link}
+          to={user ? '/login' : '/login'}
+          color="color2"
+          variant="contained"
+        >
+          KIRJAUDU
+        </Button>
+        <Button
+          style={{
+            border: '0.2vh solid black',
+            minHeight: '5vh',
+            minWidth: '5vh',
+          }}
+          component={Link}
+          to={user ? '/register' : '/register'}
+          color="color2"
+          variant="contained"
+        >
+          REKISTERÖIDY
+        </Button>
+        <Button
+          style={{
+            border: '0.2vh solid black',
+            minHeight: '5vh',
+            minWidth: '5vh',
+          }}
+          component={Link}
+          to={user ? '/about' : '/about'}
+          color="color2"
+          variant="contained"
+        >
+          TIETOA MEISTÄ
+        </Button>
+      </Grid>
     </>
   );
 };

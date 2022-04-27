@@ -1,4 +1,4 @@
-import {Button, Grid, TextField, Typography} from '@mui/material';
+import {Button, Grid, TextField} from '@mui/material';
 import {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
@@ -31,37 +31,41 @@ const LoginForm = () => {
   const {inputs, handleInputChange, handleSubmit} = useForm(doLogin, alkuarvot);
   console.log(inputs);
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Typography component="h1" variant="h2" gutterBottom>
-          Login
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12}>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      spacing={0}
+      direction="column"
+      style={{minHeight: '75vh'}}
+    >
+      <Grid item xs={12} style={{maxWidth: '20vh'}}>
         <form onSubmit={handleSubmit}>
           <TextField
             fullWidth
-            label="username"
-            placeholder="username"
+            label="käyttäjänimi"
+            placeholder="käyttäjänimi"
             name="username"
             onChange={handleInputChange}
             value={inputs.username}
           />
           <TextField
             fullWidth
-            label="password"
-            placeholder="password"
+            label="salasana"
+            placeholder="salasana"
             name="password"
             type="password"
             onChange={handleInputChange}
             value={inputs.password}
           />
-          <Button fullWidth color="primary" type="submit" variant="contained">
-            Login
-          </Button>
         </form>
       </Grid>
+      <Button
+        color="color2"
+        type="submit"
+        variant="contained"
+        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+      ></Button>
     </Grid>
   );
 };

@@ -1,11 +1,17 @@
 const themeOptions = {
   palette: {
     type: 'light',
-    primary: {
-      main: '#00104a',
+    color1: {
+      main: '#FFC120',
     },
-    secondary: {
-      main: '#d60202',
+    color2: {
+      main: '#FF5C00',
+    },
+    color3: {
+      main: '#FFFFFF',
+    },
+    color4: {
+      main: '#000000',
     },
   },
   typography: {
