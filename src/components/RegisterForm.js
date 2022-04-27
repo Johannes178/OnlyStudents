@@ -1,12 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import PropTypes from 'prop-types';
-import { useUser } from '../hooks/ApiHooks';
+import {useUser} from '../hooks/ApiHooks';
 import useForm from '../hooks/FormHooks';
-import { Grid } from '@mui/material';
-import { Typography } from '@mui/material';
-import { Button } from '@mui/material';
-import { TextValidator, ValidatorForm } from 'react-material-ui-form-validator';
-import { useEffect } from 'react';
+import {Grid} from '@mui/material';
+import {Typography} from '@mui/material';
+import {Button} from '@mui/material';
+import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
+import {useEffect} from 'react';
 
 const RegisterForm = (setToggle) => {
   const alkuarvot = {
@@ -32,7 +32,7 @@ const RegisterForm = (setToggle) => {
     full_name: ['min 2 characters'],
   };
 
-  const { postUser, getUsername } = useUser();
+  const {postUser, getUsername} = useUser();
 
   const doRegister = async () => {
     console.log('doRegister');
@@ -51,7 +51,7 @@ const RegisterForm = (setToggle) => {
     }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
+  const {inputs, handleInputChange, handleSubmit} = useForm(
     doRegister,
     alkuarvot
   );
@@ -81,7 +81,7 @@ const RegisterForm = (setToggle) => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Typography component='h1' variant='h2' gutterBottom>
+        <Typography component="h1" variant="h2" gutterBottom>
           Register
         </Typography>
       </Grid>
@@ -90,9 +90,9 @@ const RegisterForm = (setToggle) => {
         <ValidatorForm onSubmit={handleSubmit}>
           <TextValidator
             fullWidth
-            placeholder='username'
-            label='username'
-            name='username'
+            placeholder="username"
+            label="username"
+            name="username"
             onChange={handleInputChange}
             value={inputs.username}
             validators={validators.username}
@@ -100,10 +100,10 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label='password'
-            placeholder='password'
-            name='password'
-            type='password'
+            label="password"
+            placeholder="password"
+            name="password"
+            type="password"
             onChange={handleInputChange}
             value={inputs.password}
             validators={validators.password}
@@ -111,10 +111,10 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label='re-type password'
-            placeholder='re-type password'
-            name='confirm'
-            type='password'
+            label="re-type password"
+            placeholder="re-type password"
+            name="confirm"
+            type="password"
             onChange={handleInputChange}
             value={inputs.confirm}
             validators={validators.confirm}
@@ -122,10 +122,10 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label='email'
-            placeholder='email'
-            name='email'
-            type='email'
+            label="email"
+            placeholder="email"
+            name="email"
+            type="email"
             onChange={handleInputChange}
             value={inputs.email}
             validators={validators.email}
@@ -133,15 +133,15 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label='full name'
-            placeholder='full name'
-            name='full_name'
+            label="full name"
+            placeholder="full name"
+            name="full_name"
             onChange={handleInputChange}
             value={inputs.full_name}
             validators={validators.full_name}
             errorMessages={errorMessages.full_name}
           />
-          <Button fullWidth color='primary' type='submit' variant='contained'>
+          <Button fullWidth color="primary" type="submit" variant="contained">
             Register
           </Button>
         </ValidatorForm>

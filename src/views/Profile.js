@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
-import { MediaContext } from '../contexts/MediaContext';
-import { useTag } from '../hooks/ApiHooks';
-import { mediaUrl } from '../utils/variables';
+import {useContext, useEffect, useState} from 'react';
+import {MediaContext} from '../contexts/MediaContext';
+import {useTag} from '../hooks/ApiHooks';
+import {mediaUrl} from '../utils/variables';
 import {
   Avatar,
   Card,
@@ -13,15 +13,15 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import { AccountCircle, Badge, ContactMail } from '@mui/icons-material';
+import {AccountCircle, Badge, ContactMail} from '@mui/icons-material';
 import BackButton from '../components/BackButton';
 
 const Profile = () => {
-  const { user } = useContext(MediaContext);
+  const {user} = useContext(MediaContext);
   const [avatar, setAvatar] = useState({
     filename: 'https://placekitten.com/320',
   });
-  const { getTag } = useTag();
+  const {getTag} = useTag();
 
   const fetchAvatar = async () => {
     if (user) {
@@ -39,7 +39,7 @@ const Profile = () => {
   return (
     <>
       <BackButton />
-      <Typography component='h1' variant='h2'>
+      <Typography component="h1" variant="h2">
         Profile
       </Typography>
       {user && (
@@ -47,14 +47,14 @@ const Profile = () => {
           <CardContent>
             <List>
               <ListItem>
-                <ListItemAvatar sx={{ width: '100%' }}>
+                <ListItemAvatar sx={{width: '100%'}}>
                   <Avatar
-                    variant='square'
+                    variant="square"
                     src={avatar.filename}
                     imgProps={{
                       alt: `${user.username}'s profile image`,
                     }}
-                    sx={{ width: '100%', height: '30vh' }}
+                    sx={{width: '100%', height: '30vh'}}
                   />
                 </ListItemAvatar>
               </ListItem>

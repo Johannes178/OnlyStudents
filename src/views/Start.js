@@ -1,9 +1,9 @@
-import { Typography } from '@mui/material';
+import {Typography} from '@mui/material';
 
 const Start = () => {
   return (
     <>
-      <Typography component='h1' variant='h2'>
+      <Typography component="h1" variant="h2">
         Start
       </Typography>
     </>

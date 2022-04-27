@@ -7,4 +7,4 @@ const safeParseJson = (json) => {
   }
 };
 
-export { safeParseJson };
+export {safeParseJson};

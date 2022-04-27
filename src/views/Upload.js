@@ -5,12 +5,12 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-import { useMedia, useTag } from '../hooks/ApiHooks';
-import { useNavigate } from 'react-router-dom';
+import {useMedia, useTag} from '../hooks/ApiHooks';
+import {useNavigate} from 'react-router-dom';
 import useForm from '../hooks/FormHooks';
-import { useState, useEffect } from 'react';
-import { appID } from '../utils/variables';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import {useState, useEffect} from 'react';
+import {appID} from '../utils/variables';
+import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import BackButton from '../components/BackButton';
 
 const Upload = () => {
@@ -38,8 +38,8 @@ const Upload = () => {
     description: ['minimum 5 characters'],
   };
 
-  const { postMedia, loading } = useMedia();
-  const { postTag } = useTag();
+  const {postMedia, loading} = useMedia();
+  const {postTag} = useTag();
   const navigate = useNavigate();
 
   const doUpload = async () => {
@@ -69,13 +69,15 @@ const Upload = () => {
     }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
+  const {inputs, handleInputChange, handleSubmit} = useForm(
     doUpload,
     alkuarvot
   );
 
-  const { inputs: filterInputs, handleInputChange: handleSliderChange } =
-    useForm(null, filterarvot);
+  const {inputs: filterInputs, handleInputChange: handleSliderChange} = useForm(
+    null,
+    filterarvot
+  );
 
   useEffect(() => {
     if (inputs.file) {
@@ -94,7 +96,7 @@ const Upload = () => {
       <Grid container>
         <Grid item xs={12}>
           <BackButton />
-          <Typography component='h1' variant='h2' gutterBottom>
+          <Typography component="h1" variant="h2" gutterBottom>
             Upload
           </Typography>
         </Grid>
@@ -103,8 +105,8 @@ const Upload = () => {
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
               fullWidth
-              placeholder='title'
-              name='title'
+              placeholder="title"
+              name="title"
               onChange={handleInputChange}
               value={inputs.title}
               validators={validators.title}
@@ -112,8 +114,8 @@ const Upload = () => {
             />
             <TextValidator
               fullWidth
-              placeholder='description'
-              name='description'
+              placeholder="description"
+              name="description"
               onChange={handleInputChange}
               value={inputs.description}
               validators={validators.description}
@@ -122,9 +124,9 @@ const Upload = () => {
 
             <TextValidator
               fullWidth
-              type='file'
-              name='file'
-              accept='image/*, video/*, audio/*'
+              type="file"
+              name="file"
+              accept="image/*, video/*, audio/*"
               onChange={handleInputChange}
             />
 
@@ -133,9 +135,9 @@ const Upload = () => {
             ) : (
               <Button
                 fullWidth
-                color='primary'
-                type='submit'
-                variant='contained'
+                color="primary"
+                type="submit"
+                variant="contained"
                 disabled={!inputs.file}
               >
                 Upload
@@ -158,18 +160,18 @@ const Upload = () => {
               `,
               }}
               src={preview}
-              alt='preview'
+              alt="preview"
             />
           </Grid>
           <Grid container>
             <Grid item xs={12}>
               <Typography>Brightness</Typography>
               <Slider
-                name='brightness'
+                name="brightness"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.brightness}
               />
@@ -177,11 +179,11 @@ const Upload = () => {
             <Grid item xs={12}>
               <Typography>Contrast</Typography>
               <Slider
-                name='contrast'
+                name="contrast"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.contrast}
               />
@@ -189,11 +191,11 @@ const Upload = () => {
             <Grid item xs={12}>
               <Typography>Saturation</Typography>
               <Slider
-                name='saturation'
+                name="saturation"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.saturation}
               />
@@ -201,11 +203,11 @@ const Upload = () => {
             <Grid item xs={12}>
               <Typography>Sepia</Typography>
               <Slider
-                name='sepia'
+                name="sepia"
                 min={0}
                 max={100}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.sepia}
               />

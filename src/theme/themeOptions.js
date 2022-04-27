@@ -22,4 +22,4 @@ const themeOptions = {
   },
 };
 
-export { themeOptions };
+export {themeOptions};

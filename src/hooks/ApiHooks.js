@@ -1,7 +1,7 @@
 // TODO: add necessary imports
-import { useContext, useEffect, useState } from 'react';
-import { MediaContext } from '../contexts/MediaContext';
-import { appID, baseUrl } from '../utils/variables';
+import {useContext, useEffect, useState} from 'react';
+import {MediaContext} from '../contexts/MediaContext';
+import {appID, baseUrl} from '../utils/variables';
 
 const fetchJson = async (url, options = {}) => {
   try {
@@ -19,7 +19,7 @@ const fetchJson = async (url, options = {}) => {
 };
 
 const useMedia = (showAllFiles, userId) => {
-  const { update } = useContext(MediaContext);
+  const {update} = useContext(MediaContext);
   const [mediaArray, setMediaArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const getMedia = async () => {
@@ -93,7 +93,7 @@ const useMedia = (showAllFiles, userId) => {
     }
   };
 
-  return { mediaArray, postMedia, deleteMedia, putMedia, loading };
+  return {mediaArray, postMedia, deleteMedia, putMedia, loading};
 };
 
 const useUser = () => {
@@ -131,7 +131,7 @@ const useUser = () => {
     return await fetchJson(baseUrl + 'users', fetchOptions);
   };
 
-  return { getUser, postUser, getUsername, getUserById };
+  return {getUser, postUser, getUsername, getUserById};
 };
 
 const useLogin = () => {
@@ -145,7 +145,7 @@ const useLogin = () => {
     };
     return await fetchJson(baseUrl + 'login', fetchOptions);
   };
-  return { postLogin };
+  return {postLogin};
 };
 
 const useTag = () => {
@@ -169,7 +169,7 @@ const useTag = () => {
     };
     return await fetchJson(baseUrl + 'tags', fetchOptions);
   };
-  return { getTag, postTag };
+  return {getTag, postTag};
 };
 
-export { useMedia, useLogin, useUser, useTag };
+export {useMedia, useLogin, useUser, useTag};

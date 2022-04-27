@@ -5,18 +5,18 @@ import {
   Slider,
   Typography,
 } from '@mui/material';
-import { useMedia } from '../hooks/ApiHooks';
-import { useNavigate, useLocation } from 'react-router-dom';
+import {useMedia} from '../hooks/ApiHooks';
+import {useNavigate, useLocation} from 'react-router-dom';
 import useForm from '../hooks/FormHooks';
-import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
-import { safeParseJson } from '../utils/functions';
-import { mediaUrl } from '../utils/variables';
+import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
+import {safeParseJson} from '../utils/functions';
+import {mediaUrl} from '../utils/variables';
 import BackButton from '../components/BackButton';
 
 const Modify = () => {
   const location = useLocation();
   const file = location.state.file;
-  const { description, filters } = safeParseJson(file.description) || {
+  const {description, filters} = safeParseJson(file.description) || {
     description: file.description,
     filters: {
       brightness: 100,
@@ -43,7 +43,7 @@ const Modify = () => {
     description: ['minimum 5 characters'],
   };
 
-  const { putMedia, loading } = useMedia();
+  const {putMedia, loading} = useMedia();
   const navigate = useNavigate();
 
   const doModify = async () => {
@@ -68,13 +68,15 @@ const Modify = () => {
     }
   };
 
-  const { inputs, handleInputChange, handleSubmit } = useForm(
+  const {inputs, handleInputChange, handleSubmit} = useForm(
     doModify,
     alkuarvot
   );
 
-  const { inputs: filterInputs, handleInputChange: handleSliderChange } =
-    useForm(null, filters);
+  const {inputs: filterInputs, handleInputChange: handleSliderChange} = useForm(
+    null,
+    filters
+  );
 
   console.log(inputs, filterInputs);
 
@@ -83,7 +85,7 @@ const Modify = () => {
       <Grid container>
         <Grid item xs={12}>
           <BackButton />
-          <Typography component='h1' variant='h2' gutterBottom>
+          <Typography component="h1" variant="h2" gutterBottom>
             Modify
           </Typography>
         </Grid>
@@ -92,8 +94,8 @@ const Modify = () => {
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
               fullWidth
-              placeholder='title'
-              name='title'
+              placeholder="title"
+              name="title"
               onChange={handleInputChange}
               value={inputs.title}
               validators={validators.title}
@@ -101,8 +103,8 @@ const Modify = () => {
             />
             <TextValidator
               fullWidth
-              placeholder='description'
-              name='description'
+              placeholder="description"
+              name="description"
               onChange={handleInputChange}
               value={inputs.description}
               validators={validators.description}
@@ -114,9 +116,9 @@ const Modify = () => {
             ) : (
               <Button
                 fullWidth
-                color='primary'
-                type='submit'
-                variant='contained'
+                color="primary"
+                type="submit"
+                variant="contained"
               >
                 Save
               </Button>
@@ -138,18 +140,18 @@ const Modify = () => {
               `,
               }}
               src={mediaUrl + file.filename}
-              alt='preview'
+              alt="preview"
             />
           </Grid>
           <Grid container>
             <Grid item xs={12}>
               <Typography>Brightness</Typography>
               <Slider
-                name='brightness'
+                name="brightness"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.brightness}
               />
@@ -157,11 +159,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Contrast</Typography>
               <Slider
-                name='contrast'
+                name="contrast"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.contrast}
               />
@@ -169,11 +171,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Saturation</Typography>
               <Slider
-                name='saturation'
+                name="saturation"
                 min={0}
                 max={200}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.saturation}
               />
@@ -181,11 +183,11 @@ const Modify = () => {
             <Grid item xs={12}>
               <Typography>Sepia</Typography>
               <Slider
-                name='sepia'
+                name="sepia"
                 min={0}
                 max={100}
                 step={1}
-                valueLabelDisplay='on'
+                valueLabelDisplay="on"
                 onChange={handleSliderChange}
                 value={filterInputs.sepia}
               />
