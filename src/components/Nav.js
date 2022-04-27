@@ -41,33 +41,26 @@ const Nav = () => {
   console.log(user, open);
 
   return (
-    // huutiset
     <Box>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+          <Typography
+            variant="h6"
+            component={Link}
+            to={user ? '/huutiset' : '/'}
+            color="inherit"
+            sx={{flexGrow: 1}}
+          >
             OnlyStudents
           </Typography>
-          <Button
-            component={Link}
-            to={user ? '/logout' : '/login'}
-            color="inherit"
-          >
-            {user ? 'Logout' : 'Login'}
+          <Button component={Link} to={user ? '/logout' : ''} color="inherit">
+            {user ? 'Logout' : ''}
           </Button>
-          <Button
-            component={Link}
-            to={user ? '/huutiset' : '/huutiset'}
-            color="inherit"
-          >
-            {user ? 'Huutiset' : 'Huutiset'}
+          <Button component={Link} to={user ? '/huutiset' : ''} color="inherit">
+            {user ? 'Huutiset' : ''}
           </Button>
-          <Button
-            component={Link}
-            to={user ? '/about' : '/about'}
-            color="inherit"
-          >
-            {user ? 'About' : 'About'}
+          <Button component={Link} to={user ? '/about' : ''} color="inherit">
+            {user ? 'About' : ''}
           </Button>
         </Toolbar>
       </AppBar>
