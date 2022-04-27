@@ -12,7 +12,7 @@ const Start = () => {
         color="primary"
         variant="contained"
       >
-        KIRJAUDU
+        KIRJAUDUlol
       </Button>
       <Button
         component={Link}
