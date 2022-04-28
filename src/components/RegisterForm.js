@@ -6,6 +6,7 @@ import {Grid} from '@mui/material';
 import {Button} from '@mui/material';
 import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import {useEffect} from 'react';
+import BackButton from '../components/BackButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const RegisterForm = (setToggle) => {
@@ -81,13 +82,15 @@ const RegisterForm = (setToggle) => {
   return (
     <Grid
       container
-      spacing={0}
-      direction="column"
       alignItems="center"
       justifyContent="center"
-      style={{minHeight: '75vh'}}
+      spacing={7}
+      columnSpacing="0vh"
+      direction="column"
+      style={{minHeight: '90vh'}}
     >
-      <Grid item xs={12} style={{maxWidth: '75vh'}}>
+      <BackButton />
+      <Grid item xs={'auto'} style={{maxWidth: '75vh'}}>
         <ValidatorForm id="register" onSubmit={handleSubmit}>
           <TextValidator
             fullWidth
@@ -144,6 +147,7 @@ const RegisterForm = (setToggle) => {
           />
         </ValidatorForm>
       </Grid>
+      <Grid item xs={'auto'} style={{maxWidth: '20vh'}}></Grid>
       <Button
         form="register"
         color="color2"
