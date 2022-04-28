@@ -1,10 +1,17 @@
-import {useState} from 'react';
 import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
+import {motion} from 'framer-motion';
 
 const Login = () => {
-  const [toggle, setToggle] = useState(true);
-  return <>{toggle ? <LoginForm /> : <RegisterForm setToggle={setToggle} />}</>;
+  return (
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
+      {' '}
+      <LoginForm />
+    </motion.div>
+  );
 };
 
 export default Login;

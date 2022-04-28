@@ -1,10 +1,19 @@
+// eslint-disable-next-line no-unused-vars
 import {useState} from 'react';
 import RegisterForm from '../components/RegisterForm';
-const Login = () => {
-  const [toggle, setToggle] = useState(true);
+import {motion} from 'framer-motion';
+
+const Register = () => {
   return (
-    <>{toggle ? <RegisterForm /> : <RegisterForm setToggle={setToggle} />}</>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
+      {' '}
+      <RegisterForm />
+    </motion.div>
   );
 };
 
-export default Login;
+export default Register;

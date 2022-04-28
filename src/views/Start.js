@@ -3,6 +3,7 @@ import {useContext, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
 import {useUser} from '../hooks/ApiHooks';
+import {motion} from 'framer-motion';
 
 const Start = () => {
   const {user, setUser} = useContext(MediaContext);
@@ -27,7 +28,11 @@ const Start = () => {
   console.log(user, open);
 
   return (
-    <>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <Grid
         container
         spacing={0}
@@ -76,7 +81,7 @@ const Start = () => {
           TIETOA MEISTÄ
         </Button>
       </Grid>
-    </>
+    </motion.div>
   );
 };
 
