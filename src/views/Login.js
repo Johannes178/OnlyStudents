@@ -1,6 +1,5 @@
 import LoginForm from '../components/LoginForm';
 import {motion} from 'framer-motion';
-
 const Login = () => {
   return (
     <motion.div
@@ -8,7 +7,6 @@ const Login = () => {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
     >
-      {' '}
       <LoginForm />
     </motion.div>
   );

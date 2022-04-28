@@ -42,7 +42,7 @@ const Nav = () => {
             OnlyStudents
           </Typography>
           <Button component={Link} to={user ? '/huutiset' : ''} color="color3">
-            {user ? 'Huutiset' : 'Huutiset'}
+            {user ? 'Huutiset' : ''}
           </Button>
           <Button
             component={Link}
@@ -52,7 +52,7 @@ const Nav = () => {
             {user ? 'Keksustelu' : ''}
           </Button>
           <Button component={Link} to={user ? '/profile' : ''} color="color3">
-            {user ? 'Profile' : ''}
+            {user ? 'Profiili' : ''}
           </Button>
         </Toolbar>
       </AppBar>

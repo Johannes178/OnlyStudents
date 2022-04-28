@@ -4,6 +4,8 @@ import {useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
 import {useLogin} from '../hooks/ApiHooks';
 import useForm from '../hooks/FormHooks';
+import BackButton from '../components/BackButton';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const LoginForm = () => {
   // eslint-disable-next-line no-unused-vars
@@ -35,11 +37,13 @@ const LoginForm = () => {
       container
       alignItems="center"
       justifyContent="center"
-      spacing={0}
+      spacing={7}
+      columnSpacing="0vh"
       direction="column"
       style={{minHeight: '75vh'}}
     >
-      <Grid item xs={12} style={{maxWidth: '20vh'}}>
+      <BackButton />
+      <Grid item xs={'auto'} style={{maxWidth: '20vh'}}>
         <form id="login" onSubmit={handleSubmit}>
           <TextField
             fullWidth
@@ -60,17 +64,16 @@ const LoginForm = () => {
           />
         </form>
       </Grid>
+      <Grid item xs={'auto'} style={{maxWidth: '20vh'}}></Grid>
       <Button
         form="login"
         color="color2"
         type="submit"
         variant="contained"
-        style={{
-          border: '0.2vh solid black',
-          minHeight: '5vh',
-          minWidth: '5vh',
-        }}
-      ></Button>
+        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+      >
+        <ArrowForwardIosIcon />
+      </Button>
     </Grid>
   );
 };
