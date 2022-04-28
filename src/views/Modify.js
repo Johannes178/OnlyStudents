@@ -82,7 +82,14 @@ const Modify = () => {
 
   return (
     <>
-      <Grid container>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        style={{minHeight: '45vh'}}
+      >
         <Grid item xs={12}>
           <BackButton />
           <Typography component="h1" variant="h2" gutterBottom>
@@ -143,7 +150,7 @@ const Modify = () => {
               alt="preview"
             />
           </Grid>
-          <Grid container>
+          <Grid container style={{minHeight: '75vh'}}>
             <Grid item xs={12}>
               <Typography>Brightness</Typography>
               <Slider

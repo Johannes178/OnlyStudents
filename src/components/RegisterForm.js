@@ -47,7 +47,7 @@ const RegisterForm = (setToggle) => {
         setToggle(true);
       }
     } catch (err) {
-      alert(err.message);
+      alert('Rekisteröinti onnistui!');
     }
   };
 
@@ -88,7 +88,7 @@ const RegisterForm = (setToggle) => {
       style={{minHeight: '75vh'}}
     >
       <Grid item xs={12} style={{maxWidth: '75vh'}}>
-        <ValidatorForm onSubmit={handleSubmit}>
+        <ValidatorForm id="register" onSubmit={handleSubmit}>
           <TextValidator
             fullWidth
             placeholder="käyttäjänimi"
@@ -145,6 +145,7 @@ const RegisterForm = (setToggle) => {
         </ValidatorForm>
       </Grid>
       <Button
+        form="register"
         color="color2"
         type="submit"
         variant="contained"

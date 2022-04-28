@@ -40,7 +40,7 @@ const LoginForm = () => {
       style={{minHeight: '75vh'}}
     >
       <Grid item xs={12} style={{maxWidth: '20vh'}}>
-        <form onSubmit={handleSubmit}>
+        <form id="login" onSubmit={handleSubmit}>
           <TextField
             fullWidth
             label="käyttäjänimi"
@@ -61,10 +61,15 @@ const LoginForm = () => {
         </form>
       </Grid>
       <Button
+        form="login"
         color="color2"
         type="submit"
         variant="contained"
-        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+        style={{
+          border: '0.2vh solid black',
+          minHeight: '5vh',
+          minWidth: '5vh',
+        }}
       ></Button>
     </Grid>
   );
