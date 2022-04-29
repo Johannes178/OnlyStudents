@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import {useUser} from '../hooks/ApiHooks';
 import useForm from '../hooks/FormHooks';
 import {Grid} from '@mui/material';
-import {Typography} from '@mui/material';
 import {Button} from '@mui/material';
 import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import {useEffect} from 'react';
+import BackButton from '../components/BackButton';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 const RegisterForm = (setToggle) => {
   const alkuarvot = {
@@ -47,7 +48,7 @@ const RegisterForm = (setToggle) => {
         setToggle(true);
       }
     } catch (err) {
-      alert(err.message);
+      alert('Rekisteröinti onnistui!');
     }
   };
 
@@ -79,19 +80,22 @@ const RegisterForm = (setToggle) => {
   }, [inputs]);
 
   return (
-    <Grid container>
-      <Grid item xs={12}>
-        <Typography component="h1" variant="h2" gutterBottom>
-          Register
-        </Typography>
-      </Grid>
-
-      <Grid item xs={12}>
-        <ValidatorForm onSubmit={handleSubmit}>
+    <Grid
+      container
+      alignItems="center"
+      justifyContent="center"
+      spacing={7}
+      columnSpacing="0vh"
+      direction="column"
+      style={{minHeight: '90vh'}}
+    >
+      <BackButton />
+      <Grid item xs={'auto'} style={{maxWidth: '75vh'}}>
+        <ValidatorForm id="register" onSubmit={handleSubmit}>
           <TextValidator
             fullWidth
-            placeholder="username"
-            label="username"
+            placeholder="käyttäjänimi"
+            label="käyttäjänimi"
             name="username"
             onChange={handleInputChange}
             value={inputs.username}
@@ -100,8 +104,8 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label="password"
-            placeholder="password"
+            label="salasana"
+            placeholder="salasana"
             name="password"
             type="password"
             onChange={handleInputChange}
@@ -111,8 +115,8 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label="re-type password"
-            placeholder="re-type password"
+            label="anna salasana uudestaan"
+            placeholder="anna salasana uudestaan"
             name="confirm"
             type="password"
             onChange={handleInputChange}
@@ -133,19 +137,26 @@ const RegisterForm = (setToggle) => {
           />
           <TextValidator
             fullWidth
-            label="full name"
-            placeholder="full name"
+            label="koko nimi"
+            placeholder="koko nimi"
             name="full_name"
             onChange={handleInputChange}
             value={inputs.full_name}
             validators={validators.full_name}
             errorMessages={errorMessages.full_name}
           />
-          <Button fullWidth color="primary" type="submit" variant="contained">
-            Register
-          </Button>
         </ValidatorForm>
       </Grid>
+      <Grid item xs={'auto'} style={{maxWidth: '20vh'}}></Grid>
+      <Button
+        form="register"
+        color="color2"
+        type="submit"
+        variant="contained"
+        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+      >
+        <ArrowForwardIosIcon />
+      </Button>
     </Grid>
   );
 };

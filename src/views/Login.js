@@ -1,25 +1,14 @@
-import {useState} from 'react';
 import LoginForm from '../components/LoginForm';
-import RegisterForm from '../components/RegisterForm';
-import {Button} from '@mui/material';
-
+import {motion} from 'framer-motion';
 const Login = () => {
-  const [toggle, setToggle] = useState(true);
   return (
-    <>
-      {toggle ? <LoginForm /> : <RegisterForm setToggle={setToggle} />}
-      OR
-      <Button
-        fullWidth
-        color="primary"
-        variant="contained"
-        onClick={() => {
-          setToggle(!toggle);
-        }}
-      >
-        {toggle ? 'Register' : 'Login'}
-      </Button>
-    </>
+    <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
+      <LoginForm />
+    </motion.div>
   );
 };
 

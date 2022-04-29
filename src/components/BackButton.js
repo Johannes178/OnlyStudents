@@ -6,12 +6,14 @@ const BackButton = () => {
   const navigate = useNavigate();
   return (
     <Button
+      color="color2"
+      variant="contained"
       startIcon={<ArrowBack />}
       onClick={() => {
         navigate(-1);
       }}
     >
-      Back
+      Takaisin
     </Button>
   );
 };
