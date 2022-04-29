@@ -8,6 +8,7 @@ import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import {useEffect} from 'react';
 import BackButton from '../components/BackButton';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {useNavigate} from 'react-router-dom';
 
 const RegisterForm = (setToggle) => {
   const alkuarvot = {
@@ -17,6 +18,8 @@ const RegisterForm = (setToggle) => {
     email: '',
     full_name: '',
   };
+
+  const navigate = useNavigate();
 
   const validators = {
     username: ['required', 'minStringLength: 3', 'isAvailable'],
@@ -49,6 +52,7 @@ const RegisterForm = (setToggle) => {
       }
     } catch (err) {
       alert('Rekisteröinti onnistui!');
+      navigate('/login');
     }
   };
 
