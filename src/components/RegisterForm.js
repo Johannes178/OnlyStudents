@@ -2,7 +2,7 @@
 import PropTypes from 'prop-types';
 import {useUser} from '../hooks/ApiHooks';
 import useForm from '../hooks/FormHooks';
-import {Grid} from '@mui/material';
+import {Grid, Typography} from '@mui/material';
 import {Button} from '@mui/material';
 import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import {useEffect} from 'react';
@@ -79,80 +79,146 @@ const RegisterForm = (setToggle) => {
   }, [inputs]);
 
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      alignItems="center"
-      justifyContent="center"
-      style={{minHeight: '75vh'}}
-    >
-      <Grid item xs={12} style={{maxWidth: '75vh'}}>
-        <ValidatorForm onSubmit={handleSubmit}>
-          <TextValidator
-            fullWidth
-            placeholder="käyttäjänimi"
-            label="käyttäjänimi"
-            name="username"
-            onChange={handleInputChange}
-            value={inputs.username}
-            validators={validators.username}
-            errorMessages={errorMessages.username}
-          />
-          <TextValidator
-            fullWidth
-            label="salasana"
-            placeholder="salasana"
-            name="password"
-            type="password"
-            onChange={handleInputChange}
-            value={inputs.password}
-            validators={validators.password}
-            errorMessages={errorMessages.password}
-          />
-          <TextValidator
-            fullWidth
-            label="anna salasana uudestaan"
-            placeholder="anna salasana uudestaan"
-            name="confirm"
-            type="password"
-            onChange={handleInputChange}
-            value={inputs.confirm}
-            validators={validators.confirm}
-            errorMessages={errorMessages.confirm}
-          />
-          <TextValidator
-            fullWidth
-            label="email"
-            placeholder="email"
-            name="email"
-            type="email"
-            onChange={handleInputChange}
-            value={inputs.email}
-            validators={validators.email}
-            errorMessages={errorMessages.email}
-          />
-          <TextValidator
-            fullWidth
-            label="koko nimi"
-            placeholder="koko nimi"
-            name="full_name"
-            onChange={handleInputChange}
-            value={inputs.full_name}
-            validators={validators.full_name}
-            errorMessages={errorMessages.full_name}
-          />
-        </ValidatorForm>
-      </Grid>
-      <Button
-        color="color2"
-        type="submit"
-        variant="contained"
-        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+    <>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        backgroundColor="color5"
+        style={{minHeight: '75vh', marginTop: '50px'}}
       >
-        <ArrowForwardIosIcon />
-      </Button>
-    </Grid>
+        <Typography
+          component="h1"
+          variant="h2"
+          sx={{marginBottom: '30px', fontSize: '2.3rem'}}
+        >
+          Rekisteröidy
+        </Typography>
+        <Grid item xs={12} style={{maxWidth: '75vh'}}>
+          <ValidatorForm onSubmit={handleSubmit}>
+            <TextValidator
+              fullWidth
+              placeholder="käyttäjänimi"
+              label="käyttäjänimi"
+              name="username"
+              onChange={handleInputChange}
+              value={inputs.username}
+              validators={validators.username}
+              errorMessages={errorMessages.username}
+              style={{marginBottom: '30px'}}
+              className="inputfield"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
+            <TextValidator
+              fullWidth
+              label="salasana"
+              placeholder="salasana"
+              name="password"
+              type="password"
+              onChange={handleInputChange}
+              value={inputs.password}
+              validators={validators.password}
+              errorMessages={errorMessages.password}
+              style={{marginBottom: '30px'}}
+              className="inputfield"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
+            <TextValidator
+              fullWidth
+              label="anna salasana uudestaan"
+              placeholder="anna salasana uudestaan"
+              name="confirm"
+              type="password"
+              onChange={handleInputChange}
+              value={inputs.confirm}
+              validators={validators.confirm}
+              errorMessages={errorMessages.confirm}
+              style={{marginBottom: '30px'}}
+              className="inputfield"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
+            <TextValidator
+              fullWidth
+              label="email"
+              placeholder="email"
+              name="email"
+              type="email"
+              onChange={handleInputChange}
+              value={inputs.email}
+              validators={validators.email}
+              errorMessages={errorMessages.email}
+              style={{marginBottom: '30px'}}
+              className="inputfield"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
+            <TextValidator
+              fullWidth
+              label="koko nimi"
+              placeholder="koko nimi"
+              name="full_name"
+              onChange={handleInputChange}
+              value={inputs.full_name}
+              validators={validators.full_name}
+              errorMessages={errorMessages.full_name}
+              style={{marginBottom: '30px'}}
+              className="inputfield"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
+          </ValidatorForm>
+        </Grid>
+        <Button
+          color="color5"
+          type="submit"
+          variant="contained"
+          className="button"
+          style={{
+            border: '4px solid black',
+            minHeight: '5vh',
+            minWidth: '5vh',
+            marginTop: '17px',
+          }}
+        >
+          <ArrowForwardIosIcon />
+        </Button>
+      </Grid>
+    </>
   );
 };
 
