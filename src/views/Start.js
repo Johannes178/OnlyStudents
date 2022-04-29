@@ -1,10 +1,9 @@
-import {Button, Grid} from '@mui/material';
+import {Button, Stack} from '@mui/material';
 import {useContext, useEffect} from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
 import {useUser} from '../hooks/ApiHooks';
 import {motion} from 'framer-motion';
-
 const Start = () => {
   const {user, setUser} = useContext(MediaContext);
   const {getUser} = useUser();
@@ -33,54 +32,63 @@ const Start = () => {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
     >
-      <Grid
+      {' '}
+      <Stack
         container
-        spacing={0}
-        direction="row"
-        alignItems="center"
+        direction={{xs: 'column', sm: 'row'}}
+        display="flex"
         justifyContent="center"
-        style={{minHeight: '75vh'}}
+        alignItems="center"
+        minHeight="80vh"
+        textAlign={'center'}
+        spacing={10}
       >
         <Button
+          xs={{mx: 20}}
           style={{
             border: '0.2vh solid black',
             minHeight: '5vh',
-            minWidth: '5vh',
+            minWidth: '15vh',
           }}
           component={Link}
           to={user ? '/login' : '/login'}
-          color="color2"
+          color="color5"
           variant="contained"
+          className="button"
         >
           KIRJAUDU
         </Button>
         <Button
+          xs={{mx: 20}}
           style={{
             border: '0.2vh solid black',
             minHeight: '5vh',
-            minWidth: '5vh',
+            minWidth: '15vh',
           }}
           component={Link}
           to={user ? '/register' : '/register'}
-          color="color2"
+          color="color5"
           variant="contained"
+          className="button"
         >
           REKISTERÖIDY
         </Button>
         <Button
+          xs={{mx: 20}}
           style={{
             border: '0.2vh solid black',
             minHeight: '5vh',
-            minWidth: '5vh',
+            minWidth: '15vh',
           }}
           component={Link}
           to={user ? '/about' : '/about'}
-          color="color2"
+          color="color5"
           variant="contained"
+          className="button"
         >
           TIETOA MEISTÄ
         </Button>
-      </Grid>
+      </Stack>
     </motion.div>
   );
 };

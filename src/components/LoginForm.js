@@ -1,4 +1,4 @@
-import {Button, Grid, TextField} from '@mui/material';
+import {Button, Grid, TextField, Typography} from '@mui/material';
 import {useContext} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
@@ -35,14 +35,23 @@ const LoginForm = () => {
   return (
     <Grid
       container
+      spacing={0}
+      direction="column"
       alignItems="center"
       justifyContent="center"
-      spacing={7}
-      columnSpacing="0vh"
-      direction="column"
+      backgroundColor="color5"
       style={{minHeight: '75vh'}}
     >
       <BackButton />
+      <Typography
+        marginLeft={2.4}
+        component="h1"
+        variant="h2"
+        sx={{marginBottom: '4vh', fontSize: '2.3rem'}}
+      >
+        Kirjaudu
+      </Typography>
+
       <Grid item xs={'auto'} style={{maxWidth: '20vh'}}>
         <form id="login" onSubmit={handleSubmit}>
           <TextField
@@ -52,6 +61,16 @@ const LoginForm = () => {
             name="username"
             onChange={handleInputChange}
             value={inputs.username}
+            style={{marginBottom: '30px'}}
+            className="inputfield"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& > fieldset': {border: 'none'},
+              },
+              '& label.Mui-focused': {
+                display: 'none',
+              },
+            }}
           />
           <TextField
             fullWidth
@@ -61,16 +80,32 @@ const LoginForm = () => {
             type="password"
             onChange={handleInputChange}
             value={inputs.password}
+            style={{marginBottom: '30px'}}
+            className="inputfield"
+            sx={{
+              '& .MuiOutlinedInput-root': {
+                '& > fieldset': {border: 'none'},
+              },
+              '& label.Mui-focused': {
+                display: 'none',
+              },
+            }}
           />
         </form>
       </Grid>
       <Grid item xs={'auto'} style={{maxWidth: '20vh'}}></Grid>
       <Button
         form="login"
-        color="color2"
+        color="color5"
         type="submit"
         variant="contained"
-        style={{border: '0.2vh solid black', minHeight: '5vh', minWidth: '5vh'}}
+        className="button"
+        style={{
+          border: '4px solid black',
+          minHeight: '5vh',
+          minWidth: '5vh',
+          marginTop: '17px',
+        }}
       >
         <ArrowForwardIosIcon />
       </Button>
