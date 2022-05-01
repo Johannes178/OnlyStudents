@@ -51,7 +51,11 @@ const Profile = () => {
         style={{minHeight: '75vh'}}
       >
         <BackButton />
-        <Typography component="h1" variant="h2">
+        <Typography
+          component="h1"
+          variant="h2"
+          style={{fontSize: '3em', marginTop: '50px', marginBottom: '50px'}}
+        >
           Profile
         </Typography>
         {user && (
@@ -61,7 +65,7 @@ const Profile = () => {
                 <ListItem>
                   <ListItemAvatar sx={{width: '100%'}}>
                     <Avatar
-                      variant="square"
+                      variant="circular"
                       src={avatar.filename}
                       imgProps={{
                         alt: `${user.username}'s profile image`,
