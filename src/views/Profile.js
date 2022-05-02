@@ -59,9 +59,10 @@ const Profile = () => {
             sx={{
               backgroundColor: '#FFC120',
               boxShadow: 'none',
+              padding: '20px',
             }}
           >
-            <CardContent>
+            <CardContent style={{padding: '0'}}>
               <List>
                 <ListItem>
                   <ListItemAvatar
@@ -108,12 +109,13 @@ const Profile = () => {
                 variant="contained"
                 style={{
                   border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '5vh',
-                  maxHeight: '25vh',
-                  maxWidth: '25vh',
+                  minHeight: '20px',
+                  minWidth: '20px',
+                  maxHeight: '50px',
+                  maxWidth: '250px',
                   marginTop: '17px',
                   marginBottom: '17px',
+                  textAlign: 'center',
                 }}
               >
                 {user ? 'Muokkaa profiilia' : ''}
@@ -127,13 +129,14 @@ const Profile = () => {
                 variant="contained"
                 style={{
                   border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '5vh',
-                  maxHeight: '20vh',
-                  maxWidth: '20vh',
+                  minHeight: '20px',
+                  minWidth: '20px',
+                  maxHeight: '50px',
+                  maxWidth: '200px',
                   marginTop: '17px',
                   marginBottom: '17px',
                   marginRight: '15px',
+                  textAlign: 'center',
                 }}
               >
                 {user ? 'Kirjaudu ulos' : ''}
