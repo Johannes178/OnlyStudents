@@ -19,6 +19,9 @@ const themeOptions = {
     color5: {
       main: '#C4C4C4',
     },
+    color6: {
+      main: '#FF0000',
+    },
   },
   typography: {
     fontFamily: 'Syne',

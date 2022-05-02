@@ -11,11 +11,11 @@ import {
   List,
   ListItem,
   ListItemAvatar,
-  ListItemIcon,
   ListItemText,
+  Stack,
   Typography,
 } from '@mui/material';
-import {AccountCircle, Badge, ContactMail} from '@mui/icons-material';
+
 import BackButton from '../components/BackButton';
 import {Link} from 'react-router-dom';
 
@@ -51,48 +51,94 @@ const Profile = () => {
         style={{minHeight: '75vh'}}
       >
         <BackButton />
-        <Typography component="h1" variant="h2">
-          Profile
+        <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
+          Profiili
         </Typography>
         {user && (
-          <Card>
+          <Card
+            sx={{
+              backgroundColor: '#FFC120',
+              boxShadow: 'none',
+            }}
+          >
             <CardContent>
               <List>
                 <ListItem>
-                  <ListItemAvatar sx={{width: '100%'}}>
+                  <ListItemAvatar
+                    sx={{
+                      width: '100%',
+                      border: '4px solid black',
+                      borderRadius: '50%',
+                    }}
+                  >
                     <Avatar
                       variant="square"
                       src={avatar.filename}
                       imgProps={{
                         alt: `${user.username}'s profile image`,
                       }}
-                      sx={{width: '100%', height: '30vh'}}
+                      sx={{width: '100%', height: '30vh', borderRadius: '50%'}}
                     />
                   </ListItemAvatar>
                 </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <AccountCircle />
-                  </ListItemIcon>
-                  <ListItemText primary={user.username} />
+                <ListItem style={{textAlign: 'center', paddingBottom: '0'}}>
+                  <ListItemText
+                    sx={{
+                      '& .MuiTypography-root': {
+                        fontSize: '1.5rem',
+                        fontWeight: '800',
+                        paddingBottom: '0',
+                      },
+                    }}
+                    primary={user.username}
+                  />
                 </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <ContactMail />
-                  </ListItemIcon>
+                <ListItem style={{textAlign: 'center', paddingTop: '0'}}>
                   <ListItemText primary={user.email} />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <Badge />
-                  </ListItemIcon>
-                  <ListItemText primary={user.full_name} />
                 </ListItem>
               </List>
             </CardContent>
-            <Button component={Link} to={user ? '/logout' : ''} color="inherit">
-              {user ? 'Logout' : ''}
-            </Button>
+            <Stack alignItems="center" justifyContent="center">
+              <Button
+                component={Link}
+                to={user ? '/logout' : ''}
+                className="button"
+                color="color5"
+                type="submit"
+                variant="contained"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vh',
+                  maxHeight: '25vh',
+                  maxWidth: '25vh',
+                  marginTop: '17px',
+                  marginBottom: '17px',
+                }}
+              >
+                {user ? 'Muokkaa profiilia' : ''}
+              </Button>
+              <Button
+                component={Link}
+                to={user ? '/logout' : ''}
+                className="buttonReject"
+                color="color5"
+                type="submit"
+                variant="contained"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vh',
+                  maxHeight: '20vh',
+                  maxWidth: '20vh',
+                  marginTop: '17px',
+                  marginBottom: '17px',
+                  marginRight: '15px',
+                }}
+              >
+                {user ? 'Kirjaudu ulos' : ''}
+              </Button>
+            </Stack>
           </Card>
         )}
       </Grid>

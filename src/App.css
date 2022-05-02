@@ -16,6 +16,10 @@ td {
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000 !important;
 }
 
+.buttonReject {
+  box-shadow: 6px 6px 0px 3px #ff0000, 7px 7px 0px 6px #000 !important;
+}
+
 .inputfield {
   border: 4px solid #000 !important;
   border-radius: 16px;
