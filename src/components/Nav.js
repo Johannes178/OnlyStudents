@@ -29,7 +29,7 @@ const Nav = () => {
 
   return (
     <Box>
-      <AppBar color="color4">
+      <AppBar color="color4" position="absolute">
         <Toolbar>
           <Typography
             variant="h6"

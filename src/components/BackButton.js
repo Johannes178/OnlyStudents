@@ -18,9 +18,9 @@ const BackButton = () => {
         border: '4px solid black',
         minHeight: '5vh',
         minWidth: '5vh',
-        top: '6vh',
-        left: '1.2vh',
-        position: 'absolute',
+        top: '8vh',
+        left: '1vh',
+        position: 'fixed',
       }}
     >
       {' '}

@@ -56,7 +56,6 @@ const LoginForm = () => {
         <form id="login" onSubmit={handleSubmit}>
           <TextField
             fullWidth
-            label="käyttäjänimi"
             placeholder="käyttäjänimi"
             name="username"
             onChange={handleInputChange}
@@ -74,7 +73,6 @@ const LoginForm = () => {
           />
           <TextField
             fullWidth
-            label="salasana"
             placeholder="salasana"
             name="password"
             type="password"
