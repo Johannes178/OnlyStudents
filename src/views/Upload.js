@@ -1,10 +1,4 @@
-import {
-  Button,
-  CircularProgress,
-  Grid,
-  Slider,
-  Typography,
-} from '@mui/material';
+import {Button, CircularProgress, Grid, Typography} from '@mui/material';
 import {useMedia, useTag} from '../hooks/ApiHooks';
 import {useNavigate} from 'react-router-dom';
 import useForm from '../hooks/FormHooks';
@@ -12,20 +6,13 @@ import {useState, useEffect} from 'react';
 import {appID} from '../utils/variables';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import BackButton from '../components/BackButton';
+import {Box} from '@mui/system';
 
 const Upload = () => {
   const [preview, setPreview] = useState('logo192.png');
   const alkuarvot = {
-    title: '',
     description: '',
     file: null,
-  };
-
-  const filterarvot = {
-    brightness: 100,
-    contrast: 100,
-    saturation: 100,
-    sepia: 0,
   };
 
   const validators = {
@@ -48,7 +35,6 @@ const Upload = () => {
       // lisätään filtterit descriptioniin
       const desc = {
         description: inputs.description,
-        filters: filterInputs,
       };
       const token = localStorage.getItem('token');
       const formdata = new FormData();
@@ -74,11 +60,6 @@ const Upload = () => {
     alkuarvot
   );
 
-  const {inputs: filterInputs, handleInputChange: handleSliderChange} = useForm(
-    null,
-    filterarvot
-  );
-
   useEffect(() => {
     if (inputs.file) {
       const reader = new FileReader();
@@ -89,132 +70,133 @@ const Upload = () => {
     }
   }, [inputs.file]);
 
-  console.log(inputs, filterInputs);
+  console.log(inputs);
 
   return (
     <>
       <Grid container>
         <Grid item xs={12}>
           <BackButton />
-          <Typography component="h1" variant="h2" gutterBottom>
-            Upload
-          </Typography>
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid
+          id="container"
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          backgroundColor="color5"
+          style={{
+            minHeight: '100vh',
+            width: '80vw',
+            backgroundColor: 'white',
+            margin: 'auto',
+          }}
+        >
+          <Typography
+            component="h1"
+            variant="h2"
+            gutterBottom
+            style={{
+              marginTop: '100px',
+              marginBottom: '40px',
+              textAlign: 'center',
+              fontSize: '2em',
+            }}
+          >
+            Lisää julkaisu
+          </Typography>
           <ValidatorForm onSubmit={handleSubmit}>
             <TextValidator
-              fullWidth
-              placeholder="title"
-              name="title"
+              type="file"
+              name="file"
+              accept="image/*, video/*, audio/*"
               onChange={handleInputChange}
-              value={inputs.title}
-              validators={validators.title}
-              errorMessages={errorMessages.title}
+              style={{marginBottom: '30px'}}
+              className="inputfield2"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
             />
+            <Box style={{display: 'flex', justifyContent: 'center'}}>
+              <img
+                style={{
+                  maxWidth: '40vw',
+                }}
+                src={preview}
+                alt="preview"
+              />
+            </Box>
+
             <TextValidator
-              fullWidth
-              placeholder="description"
+              placeholder="Kuvateksti"
               name="description"
               onChange={handleInputChange}
               value={inputs.description}
               validators={validators.description}
               errorMessages={errorMessages.description}
+              style={{
+                marginTop: '20px',
+                marginBottom: '20px',
+              }}
+              className="inputfield2"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
             />
 
-            <TextValidator
-              fullWidth
-              type="file"
-              name="file"
-              accept="image/*, video/*, audio/*"
-              onChange={handleInputChange}
-            />
-
-            {loading ? (
-              <CircularProgress />
-            ) : (
+            <Box id="buttonbox">
               <Button
-                fullWidth
-                color="primary"
+                color="color5"
                 type="submit"
                 variant="contained"
-                disabled={!inputs.file}
+                className="deleteButton"
+                onClick={() => {
+                  navigate('/huutiset');
+                }}
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vh',
+                  marginTop: '17px',
+                }}
               >
-                Upload
+                Peruuta
               </Button>
-            )}
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  color="color5"
+                  type="submit"
+                  variant="contained"
+                  disabled={!inputs.file}
+                  className="saveButton"
+                  style={{
+                    border: '4px solid black',
+                    minHeight: '5vh',
+                    minWidth: '5vh',
+                    marginTop: '17px',
+                  }}
+                >
+                  Julkaise
+                </Button>
+              )}
+            </Box>
           </ValidatorForm>
         </Grid>
       </Grid>
-      {inputs.file && (
-        <Grid container>
-          <Grid item xs={12}>
-            <img
-              style={{
-                width: '100%',
-                filter: `
-              brightness(${filterInputs.brightness}%)
-              contrast(${filterInputs.contrast}%)
-              saturate(${filterInputs.saturation}%)
-              sepia(${filterInputs.sepia}%)
-              `,
-              }}
-              src={preview}
-              alt="preview"
-            />
-          </Grid>
-          <Grid container>
-            <Grid item xs={12}>
-              <Typography>Brightness</Typography>
-              <Slider
-                name="brightness"
-                min={0}
-                max={200}
-                step={1}
-                valueLabelDisplay="on"
-                onChange={handleSliderChange}
-                value={filterInputs.brightness}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography>Contrast</Typography>
-              <Slider
-                name="contrast"
-                min={0}
-                max={200}
-                step={1}
-                valueLabelDisplay="on"
-                onChange={handleSliderChange}
-                value={filterInputs.contrast}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography>Saturation</Typography>
-              <Slider
-                name="saturation"
-                min={0}
-                max={200}
-                step={1}
-                valueLabelDisplay="on"
-                onChange={handleSliderChange}
-                value={filterInputs.saturation}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <Typography>Sepia</Typography>
-              <Slider
-                name="sepia"
-                min={0}
-                max={100}
-                step={1}
-                valueLabelDisplay="on"
-                onChange={handleSliderChange}
-                value={filterInputs.sepia}
-              />
-            </Grid>
-          </Grid>
-        </Grid>
-      )}
     </>
   );
 };

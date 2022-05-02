@@ -7,13 +7,44 @@ td {
   padding: 1rem;
   border-bottom: 1px solid grey;
 } */
-#root {
+#root,
+body {
   height: 100vh;
   background-color: #ffc120;
 }
 
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 .button {
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000 !important;
+}
+
+.button:hover {
+  box-shadow: 6px 6px 0px 3px #1ab8ae, 7px 7px 0px 6px #000 !important;
+}
+
+.deleteButton {
+  box-shadow: 6px 6px 0px 3px #ff0000, 7px 7px 0px 6px #000 !important;
+}
+
+.deleteButton:hover {
+  box-shadow: 6px 6px 0px 3px #1ab8ae, 7px 7px 0px 6px #000 !important;
+}
+
+.saveButton {
+  box-shadow: 6px 6px 0px 3px #3fbf34, 7px 7px 0px 6px #000 !important;
+}
+
+.saveButton:hover {
+  box-shadow: 6px 6px 0px 3px #1ab8ae, 7px 7px 0px 6px #000 !important;
 }
 
 .inputfield {
@@ -21,4 +52,24 @@ td {
   border-radius: 16px;
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000;
   margin: 15px;
+}
+
+.inputfield2 {
+  border: 4px solid #ff5c00 !important;
+  border-radius: 16px;
+  margin: 15px;
+  width: 50vw;
+}
+
+#buttonbox {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+@media only screen and (max-width: 650px) {
+  #buttonbox {
+    display: flex;
+    flex-direction: column;
+  }
 }
