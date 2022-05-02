@@ -72,6 +72,7 @@ const Modify = () => {
         direction="column"
         alignItems="center"
         justifyContent="center"
+        backgroundColor="color5"
         style={{minHeight: '20vh'}}
       >
         <Grid item xs={12}>
@@ -79,9 +80,9 @@ const Modify = () => {
             marginLeft={2.4}
             component="h1"
             variant="h2"
-            sx={{marginTop: '8vh', fontSize: '2.3rem'}}
+            sx={{marginBottom: '5vh', marginTop: '10vh', fontSize: '2.3rem'}}
           >
-            Modify
+            Muokkaa
           </Typography>
         </Grid>
 
@@ -95,6 +96,8 @@ const Modify = () => {
               value={inputs.title}
               validators={validators.title}
               errorMessages={errorMessages.title}
+              className="inputfield"
+              style={{marginBottom: '30px'}}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& > fieldset': {border: 'none'},
@@ -112,6 +115,8 @@ const Modify = () => {
               value={inputs.description}
               validators={validators.description}
               errorMessages={errorMessages.description}
+              className="inputfield"
+              style={{marginBottom: '30px'}}
               sx={{
                 '& .MuiOutlinedInput-root': {
                   '& > fieldset': {border: 'none'},
@@ -127,9 +132,10 @@ const Modify = () => {
             ) : (
               <Button
                 fullWidth
-                color="primary"
+                color="color5"
                 type="submit"
                 variant="contained"
+                className="button"
                 style={{
                   border: '4px solid black',
                   minHeight: '5vh',
@@ -158,7 +164,7 @@ const Modify = () => {
               style={{
                 marginTop: '7vh',
                 maxWidth: '70%',
-                maxHeight: '55vh',
+                maxHeight: '50vh',
               }}
               src={mediaUrl + file.filename}
               alt="preview"
