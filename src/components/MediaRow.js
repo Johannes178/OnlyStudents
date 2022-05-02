@@ -34,7 +34,7 @@ const MediaRow = ({file, userId, deleteMedia}) => {
       <Stack
         style={{
           spacing: '3vh',
-          marginBottom: '-7vh',
+          marginBottom: '-2vh',
           maxWidth: '100%',
           minHeight: '8vh',
           direction: 'row',
@@ -72,7 +72,6 @@ const MediaRow = ({file, userId, deleteMedia}) => {
                 marginTop="2vh"
                 spacing={2}
                 container
-                display="flex"
                 direction="row"
                 marginLeft="-1vh"
               >

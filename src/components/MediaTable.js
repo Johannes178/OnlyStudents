@@ -28,6 +28,7 @@ const MediaTable = ({allFiles = true}) => {
                 alignItems="center"
                 justifyContent="center"
                 marginTop={'6vh'}
+                sx={{flexGrow: 1}}
               >
                 <MediaRow
                   key={index}
