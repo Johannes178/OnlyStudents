@@ -86,7 +86,7 @@ const MediaRow = ({file, userId, deleteMedia}) => {
                   variant="contained"
                   className="button"
                   style={{
-                    border: '0.2vh solid black',
+                    border: '4px solid black',
                     minHeight: '5vh',
                     minWidth: '10vh',
                   }}
@@ -99,7 +99,7 @@ const MediaRow = ({file, userId, deleteMedia}) => {
                   variant="contained"
                   className="button"
                   style={{
-                    border: '0.2vh solid black',
+                    border: '4px solid black',
                     minHeight: '5vh',
                     minWidth: '10vh',
                   }}

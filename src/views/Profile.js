@@ -48,7 +48,7 @@ const Profile = () => {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{minHeight: '75vh'}}
+        style={{minHeight: '68vh'}}
       >
         <BackButton />
         <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
@@ -59,9 +59,10 @@ const Profile = () => {
             sx={{
               backgroundColor: '#FFC120',
               boxShadow: 'none',
+              padding: '20px',
             }}
           >
-            <CardContent>
+            <CardContent style={{padding: '0'}}>
               <List>
                 <ListItem>
                   <ListItemAvatar
@@ -98,7 +99,13 @@ const Profile = () => {
                 </ListItem>
               </List>
             </CardContent>
-            <Stack alignItems="center" justifyContent="center">
+            <Stack
+              marginTop="2vh"
+              spacing={2}
+              container
+              display="flex"
+              direction="row"
+            >
               <Button
                 component={Link}
                 to={user ? '/logout' : ''}
@@ -109,11 +116,7 @@ const Profile = () => {
                 style={{
                   border: '4px solid black',
                   minHeight: '5vh',
-                  minWidth: '5vh',
-                  maxHeight: '25vh',
-                  maxWidth: '25vh',
-                  marginTop: '17px',
-                  marginBottom: '17px',
+                  minWidth: '10vh',
                 }}
               >
                 {user ? 'Muokkaa profiilia' : ''}
@@ -128,12 +131,7 @@ const Profile = () => {
                 style={{
                   border: '4px solid black',
                   minHeight: '5vh',
-                  minWidth: '5vh',
-                  maxHeight: '20vh',
-                  maxWidth: '20vh',
-                  marginTop: '17px',
-                  marginBottom: '17px',
-                  marginRight: '15px',
+                  minWidth: '10vh',
                 }}
               >
                 {user ? 'Kirjaudu ulos' : ''}
