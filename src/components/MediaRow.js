@@ -1,4 +1,4 @@
-import {Button, ImageListItem, ImageListItemBar} from '@mui/material';
+import {Button, ImageListItem, Typography, Stack} from '@mui/material';
 import PropTypes from 'prop-types';
 import {useContext} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
@@ -30,44 +30,88 @@ const MediaRow = ({file, userId, deleteMedia}) => {
   };
 
   return (
-    <ImageListItem key={file.file_id}>
-      <img
-        src={file.thumbnails ? mediaUrl + file.thumbnails.w320 : 'logo512.png'}
-        alt={file.title}
-        loading="lazy"
-      />
-      <ImageListItemBar
-        actionIcon={
-          <>
-            <Button
-              variant="contained"
-              component={Link}
-              to={'/single'}
-              state={{file}}
-            >
-              View
-            </Button>
-            {userId === file.user_id && (
-              <>
+    <>
+      <Stack
+        style={{
+          spacing: '3vh',
+          marginBottom: '-7vh',
+          maxWidth: '100%',
+          minHeight: '8vh',
+          direction: 'row',
+        }}
+      >
+        {' '}
+      </Stack>
+      <ImageListItem
+        component={Link}
+        to={'/single'}
+        state={{file}}
+        variant="contained"
+        key={file.file_id}
+      >
+        <img
+          src={
+            file.thumbnails ? mediaUrl + file.thumbnails.w320 : 'logo512.png'
+          }
+          alt={file.title}
+          loading="lazy"
+          color="color5"
+          variant="contained"
+          style={{
+            border: '10px solid black',
+            borderRadius: '20px',
+          }}
+        />
+      </ImageListItem>
+
+      {
+        <>
+          {userId === file.user_id && (
+            <>
+              <Stack
+                marginTop="2vh"
+                spacing={2}
+                container
+                display="flex"
+                direction="row"
+                marginLeft="-1vh"
+              >
                 <Button
-                  variant="contained"
+                  title={file.title}
+                  subtitle={description}
                   component={Link}
                   to={'/modify'}
                   state={{file}}
+                  color="color5"
+                  variant="contained"
+                  className="button"
+                  style={{
+                    border: '0.2vh solid black',
+                    minHeight: '5vh',
+                    minWidth: '10vh',
+                  }}
                 >
-                  Edit
+                  <Typography sx={{fontSize: '1rem'}}>Muokkaa</Typography>
                 </Button>
-                <Button variant="contained" onClick={doDelete}>
-                  Delete
+                <Button
+                  onClick={doDelete}
+                  color="color5"
+                  variant="contained"
+                  className="button"
+                  style={{
+                    border: '0.2vh solid black',
+                    minHeight: '5vh',
+                    minWidth: '10vh',
+                  }}
+                >
+                  <Typography sx={{fontSize: '1rem'}}>Poista</Typography>
                 </Button>
-              </>
-            )}
-          </>
-        }
-        title={file.title}
-        subtitle={description}
-      />
-    </ImageListItem>
+              </Stack>
+            </>
+          )}
+        </>
+      }
+    </>
   );
 };
 

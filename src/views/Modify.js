@@ -163,8 +163,8 @@ const Modify = () => {
             <img
               style={{
                 marginTop: '7vh',
-                maxWidth: '70%',
-                maxHeight: '50vh',
+                maxWidth: '80%',
+                maxHeight: '60vh',
               }}
               src={mediaUrl + file.filename}
               alt="preview"
