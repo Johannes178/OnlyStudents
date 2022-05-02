@@ -25,14 +25,8 @@ const MediaRow = ({file, userId, deleteMedia}) => {
     }
   };
 
-  const {description, filters} = safeParseJson(file.description) || {
+  const {description} = safeParseJson(file.description) || {
     description: file.description,
-    filters: {
-      brightness: 100,
-      contrast: 100,
-      saturation: 100,
-      sepia: 0,
-    },
   };
 
   return (
@@ -41,14 +35,6 @@ const MediaRow = ({file, userId, deleteMedia}) => {
         src={file.thumbnails ? mediaUrl + file.thumbnails.w320 : 'logo512.png'}
         alt={file.title}
         loading="lazy"
-        style={{
-          filter: `
-        brightness(${filters.brightness}%)
-        contrast(${filters.contrast}%)
-        saturate(${filters.saturation}%)
-        sepia(${filters.sepia}%)
-        `,
-        }}
       />
       <ImageListItemBar
         actionIcon={

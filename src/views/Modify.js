@@ -153,7 +153,6 @@ const Modify = () => {
             direction="column"
             alignItems="center"
             justifyContent="center"
-            style={{minHeight: '20vh'}}
           >
             <img
               style={{
