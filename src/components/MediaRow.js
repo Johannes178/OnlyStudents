@@ -42,6 +42,7 @@ const MediaRow = ({file, userId, deleteMedia}) => {
       >
         {' '}
       </Stack>
+
       <ImageListItem
         component={Link}
         to={'/single'}

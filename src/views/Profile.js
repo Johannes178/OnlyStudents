@@ -126,7 +126,7 @@ const Profile = () => {
           <Button
             component={Link}
             to={user ? '/logout' : ''}
-            className="buttonReject"
+            className="button"
             color="color5"
             type="submit"
             variant="contained"
