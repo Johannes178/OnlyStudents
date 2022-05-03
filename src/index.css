@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: 'Syne', sans-serif;
+}

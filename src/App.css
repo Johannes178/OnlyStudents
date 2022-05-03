@@ -1,0 +1,43 @@
+/* table {
+  width: 40rem;
+  margin: auto;
+  border-spacing: 0;
+}
+td {
+  padding: 1rem;
+  border-bottom: 1px solid grey;
+} */
+#root,
+body {
+  height: 100vh;
+  background-color: #ffc120;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.button {
+  box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000 !important;
+}
+
+.buttonReject {
+  box-shadow: 6px 6px 0px 3px #ff0000, 7px 7px 0px 6px #000 !important;
+}
+
+.inputfield {
+  border: 4px solid #000 !important;
+  border-radius: 16px;
+  box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000;
+  margin: 15px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
