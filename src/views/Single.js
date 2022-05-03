@@ -20,14 +20,8 @@ const Single = () => {
   const location = useLocation();
   console.log(location);
   const file = location.state.file;
-  const {description, filters} = safeParseJson(file.description) || {
+  const {description} = safeParseJson(file.description) || {
     description: file.description,
-    filters: {
-      brightness: 100,
-      contrast: 100,
-      saturation: 100,
-      sepia: 0,
-    },
   };
 
   const {getTag} = useTag();
@@ -66,12 +60,6 @@ const Single = () => {
           alt={file.title}
           sx={{
             height: '60vh',
-            filter: `
-          brightness(${filters.brightness}%)
-          contrast(${filters.contrast}%)
-          saturate(${filters.saturation}%)
-          sepia(${filters.sepia}%)
-          `,
           }}
         />
         <CardContent>
