@@ -9,10 +9,8 @@ import {useEffect} from 'react';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import BackButton from '../components/BackButton';
 // import {useNavigate} from 'react-router-dom';
-import {useState} from 'react';
 
 const ProfileForm = ({user}) => {
-  const [preview, setPreview] = useState('logo192.png');
   /* const alkuarvot = {
     username: '',
     password: '',
@@ -89,13 +87,6 @@ const ProfileForm = ({user}) => {
       // return true;
       return value === inputs.password ? true : false;
     });
-    if (inputs.file) {
-      const reader = new FileReader();
-      reader.addEventListener('load', () => {
-        setPreview(reader.result);
-      });
-      reader.readAsDataURL(inputs.file);
-    }
 
     return () => {
       // ValidatorForm.addValidationRule('isAvailable');
@@ -217,19 +208,6 @@ const ProfileForm = ({user}) => {
           <ArrowForwardIosIcon />
         </Button>
       </Grid>
-      {inputs.file && (
-        <Grid container>
-          <Grid item xs={12}>
-            <img
-              style={{
-                width: '100%',
-              }}
-              src={preview}
-              alt="preview"
-            />
-          </Grid>
-        </Grid>
-      )}
     </>
   );
 };
