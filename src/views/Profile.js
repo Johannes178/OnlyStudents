@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardContent,
-  Grid,
   List,
   ListItem,
   ListItemAvatar,
@@ -42,13 +41,12 @@ const Profile = () => {
   return (
     <>
       {' '}
-      <Grid
-        container
+      <Stack
         spacing={0}
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{minHeight: '68vh'}}
+        style={{minHeight: '79vh'}}
       >
         <BackButton />
         <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
@@ -59,26 +57,26 @@ const Profile = () => {
             sx={{
               backgroundColor: '#FFC120',
               boxShadow: 'none',
-              padding: '20px',
+              margin: '0',
             }}
           >
-            <CardContent style={{padding: '0'}}>
+            <CardContent style={{margin: '0'}}>
               <List>
-                <ListItem>
-                  <ListItemAvatar
-                    sx={{
-                      width: '100%',
-                      border: '4px solid black',
-                      borderRadius: '50%',
-                    }}
-                  >
+                <ListItem disablePadding>
+                  <ListItemAvatar>
                     <Avatar
-                      variant="square"
+                      disablePadding
+                      variant="circle"
                       src={avatar.filename}
                       imgProps={{
                         alt: `${user.username}'s profile image`,
                       }}
-                      sx={{width: '100%', height: '30vh', borderRadius: '50%'}}
+                      sx={{
+                        border: '10px solid black',
+                        variant: 'contained',
+                        height: '100%',
+                        width: '100%',
+                      }}
                     />
                   </ListItemAvatar>
                 </ListItem>
@@ -99,47 +97,57 @@ const Profile = () => {
                 </ListItem>
               </List>
             </CardContent>
-            <Stack
-              marginTop="2vh"
-              spacing={2}
-              container
-              display="flex"
-              direction="row"
-            >
-              <Button
-                component={Link}
-                to={user ? '/logout' : ''}
-                className="button"
-                color="color5"
-                type="submit"
-                variant="contained"
-                style={{
-                  border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '10vh',
-                }}
-              >
-                {user ? 'Muokkaa profiilia' : ''}
-              </Button>
-              <Button
-                component={Link}
-                to={user ? '/logout' : ''}
-                className="buttonReject"
-                color="color5"
-                type="submit"
-                variant="contained"
-                style={{
-                  border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '10vh',
-                }}
-              >
-                {user ? 'Kirjaudu ulos' : ''}
-              </Button>
-            </Stack>
           </Card>
         )}
-      </Grid>
+        <Stack spacing={3} direction="column" marginRight="2vh">
+          <Button
+            component={Link}
+            to={user ? '/logout' : ''}
+            className="button"
+            color="color5"
+            type="submit"
+            variant="contained"
+            style={{
+              border: '4px solid black',
+              maxHeight: '5vh',
+              maxWidth: '50vh',
+              minHeight: '7vh',
+              minWidth: '15vh',
+            }}
+          >
+            {user ? (
+              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                Muokkaa
+              </Typography>
+            ) : (
+              ''
+            )}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? '/logout' : ''}
+            className="buttonReject"
+            color="color5"
+            type="submit"
+            variant="contained"
+            style={{
+              border: '4px solid black',
+              maxHeight: '5vh',
+              maxWidth: '15vh',
+              minHeight: '7vh',
+              minWidth: '10vh',
+            }}
+          >
+            {user ? (
+              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                Kirjaudu ulos
+              </Typography>
+            ) : (
+              ''
+            )}
+          </Button>
+        </Stack>{' '}
+      </Stack>
     </>
   );
 };

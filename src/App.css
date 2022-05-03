@@ -7,6 +7,15 @@ td {
   padding: 1rem;
   border-bottom: 1px solid grey;
 } */
+@media only screen and (max-width: 650px) {
+  #appbar {
+     font-size: 0.6rem;
+  }
+  #logolink{
+    font-size: 1rem;
+
+  }
+}
 #root,
 body {
   height: 100vh;
@@ -41,3 +50,4 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
