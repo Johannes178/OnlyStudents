@@ -69,7 +69,7 @@ const MediaRow = ({file, userId, deleteMedia}) => {
           {userId === file.user_id && (
             <>
               <Stack
-                marginTop="2vh"
+                marginTop="1.5vh"
                 spacing={2}
                 container
                 direction="row"

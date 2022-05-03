@@ -37,3 +37,7 @@ body {
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000;
   margin: 15px;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
