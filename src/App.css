@@ -21,7 +21,6 @@ td {
 }
 
 .inputfield {
-  border: 4px solid #000 !important;
   border-radius: 16px;
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000;
   margin: 15px;

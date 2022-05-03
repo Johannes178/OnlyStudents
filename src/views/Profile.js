@@ -67,7 +67,8 @@ const Profile = () => {
                 <ListItem>
                   <ListItemAvatar
                     sx={{
-                      width: '100%',
+                      width: '320px',
+                      height: '320px',
                       border: '4px solid black',
                       borderRadius: '50%',
                     }}
@@ -78,7 +79,11 @@ const Profile = () => {
                       imgProps={{
                         alt: `${user.username}'s profile image`,
                       }}
-                      sx={{width: '100%', height: '30vh', borderRadius: '50%'}}
+                      sx={{
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: '50%',
+                      }}
                     />
                   </ListItemAvatar>
                 </ListItem>
@@ -102,7 +107,7 @@ const Profile = () => {
             <Stack alignItems="center" justifyContent="center">
               <Button
                 component={Link}
-                to={user ? '/logout' : ''}
+                to={user ? '/editprofile' : ''}
                 className="button"
                 color="color5"
                 type="submit"

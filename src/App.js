@@ -17,6 +17,7 @@ import Register from './views/Register';
 import Single from './views/Single';
 import Start from './views/Start';
 import Upload from './views/Upload';
+import EditProfile from './views/EditProfile';
 
 const theme = createTheme(themeOptions);
 
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/upload" element={<Upload />} />
               <Route path="/myfiles" element={<MyFiles />} />
               <Route path="/modify" element={<Modify />} />
+              <Route path="/editprofile" element={<EditProfile />} />
             </Routes>
           </Container>
         </ThemeProvider>
