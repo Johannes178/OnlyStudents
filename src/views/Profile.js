@@ -97,6 +97,49 @@ const Profile = () => {
                 </ListItem>
               </List>
             </CardContent>
+            <Stack alignItems="center" justifyContent="center">
+              <Button
+                component={Link}
+                to={user ? '/logout' : ''}
+                className="button"
+                color="color5"
+                type="submit"
+                variant="contained"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '20px',
+                  minWidth: '20px',
+                  maxHeight: '50px',
+                  maxWidth: '250px',
+                  marginTop: '17px',
+                  marginBottom: '17px',
+                  textAlign: 'center',
+                }}
+              >
+                {user ? 'Muokkaa profiilia' : ''}
+              </Button>
+              <Button
+                component={Link}
+                to={user ? '/logout' : ''}
+                className="buttonReject"
+                color="color5"
+                type="submit"
+                variant="contained"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '20px',
+                  minWidth: '20px',
+                  maxHeight: '50px',
+                  maxWidth: '200px',
+                  marginTop: '17px',
+                  marginBottom: '17px',
+                  marginRight: '15px',
+                  textAlign: 'center',
+                }}
+              >
+                {user ? 'Kirjaudu ulos' : ''}
+              </Button>
+            </Stack>
           </Card>
         )}
         <Stack spacing={3} direction="column" marginRight="2vh">
