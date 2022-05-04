@@ -68,6 +68,10 @@ body {
 }
 
 @media only screen and (max-width: 650px) {
+  .inputfield2 {
+    width: 70vw;
+  }
+
   #buttonbox {
     display: flex;
     flex-direction: column;

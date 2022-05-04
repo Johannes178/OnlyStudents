@@ -11,6 +11,7 @@ import {Box} from '@mui/system';
 const Upload = () => {
   const [preview, setPreview] = useState('logo192.png');
   const alkuarvot = {
+    title: '',
     description: '',
     file: null,
   };
@@ -133,6 +134,27 @@ const Upload = () => {
                 alt="preview"
               />
             </Box>
+            <TextValidator
+              placeholder="Otsikko"
+              name="title"
+              onChange={handleInputChange}
+              value={inputs.title}
+              validators={validators.title}
+              errorMessages={errorMessages.title}
+              style={{
+                marginTop: '20px',
+                marginBottom: '20px',
+              }}
+              className="inputfield2"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: 'none'},
+                },
+                '& label.Mui-focused': {
+                  display: 'none',
+                },
+              }}
+            />
 
             <TextValidator
               placeholder="Kuvateksti"
