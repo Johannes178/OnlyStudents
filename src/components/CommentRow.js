@@ -1,7 +1,7 @@
 import useForm from '../hooks/FormHooks';
 import {useComments} from '../hooks/ApiHooks';
 import PropTypes from 'prop-types';
-import {Button, TextField, Typography} from '@mui/material';
+import {Button, TextField, Typography, Grid} from '@mui/material';
 
 const CommentRow = (fileId, comment, deleteComments) => {
   // const {comment} = useContext(MediaContext);
@@ -20,7 +20,7 @@ const CommentRow = (fileId, comment, deleteComments) => {
     }
   };
 
-  const doDeleteComments = () => {
+  /*  const doDeleteComments = () => {
     const ok = confirm('Do juu delte coment?');
     if (ok) {
       try {
@@ -36,42 +36,86 @@ const CommentRow = (fileId, comment, deleteComments) => {
       }
     }
   };
-
+*/
   const {inputs, handleInputChange, handleSubmit} = useForm(doComment, {
     comment: '',
   });
 
   return (
     <>
-      <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-        <TextField
-          name="comment"
-          className="inputfield"
-          label="My text:"
-          multiline
-          rows={10}
-          fullWidth
-          variant="filled"
-          onChange={(e) => handleInputChange(e)}
-          value={inputs.comment}
-        />
-        <Button variant="contained" type="submit" fullWidth>
-          Lisää
-        </Button>
-      </form>
-      <Button
-        onClick={doDeleteComments}
-        color="color5"
-        variant="contained"
-        className="button"
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        alignItems="center"
         style={{
-          border: '4px solid black',
-          minHeight: '5vh',
-          minWidth: '10vh',
+          spacing: '3vh',
+          maxWidth: '100%',
+          minHeight: '8vh',
         }}
       >
-        <Typography sx={{fontSize: '1rem'}}>Poista</Typography>
-      </Button>
+        {' '}
+        <Grid marginTop="4vh" item xs={12}>
+          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
+            <Grid item xs={12}>
+              <TextField
+                name="comment"
+                className="inputfield"
+                label="Mitä mielessä?"
+                rows={1}
+                onChange={(e) => handleInputChange(e)}
+                value={inputs.comment}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {
+                      minHeight: '5vh',
+                      minWidth: '5vw',
+                      border: '4px solid black',
+                    },
+                  },
+                }}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                color="color5"
+                type="submit"
+                variant="contained"
+                className="button"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vw',
+                  marginTop: '2vh',
+                }}
+              >
+                <Typography sx={{fontSize: '1rem'}}>Lisää kommentti</Typography>
+              </Button>
+            </Grid>
+            {/*
+            <Grid item xs={12}>
+              <Button
+                onClick={doDeleteComments}
+                color="color5"
+                variant="contained"
+                className="deleteButton"
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vw',
+                  marginBottom: '2vh',
+                }}
+              >
+                {' '}
+                <Typography sx={{fontSize: '1rem'}}>
+                  Poista kommentti
+                </Typography>
+              </Button>
+
+              </Grid> */}
+          </form>
+        </Grid>
+      </Grid>
     </>
   );
 };

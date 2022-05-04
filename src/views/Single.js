@@ -50,7 +50,7 @@ const Single = () => {
     const interval = setInterval(() => {
       fetchAvatar();
       getCommentsit();
-    }, 10000);
+    }, 100);
     (async () => {
       if (!open) {
         try {
@@ -100,6 +100,7 @@ const Single = () => {
               <Typography component="h3" variant="h4">
                 {file.title}
               </Typography>
+              <Typography>{description}</Typography>
               <Grid
                 item
                 component={
@@ -114,11 +115,16 @@ const Single = () => {
                   maxHeight: '30vh',
                 }}
               />{' '}
-              <Typography>{description}</Typography>
-              <List>
+              <List spacing={0} direction="column">
                 {comments?.map((singlecomment) => {
                   return (
-                    <ListItem key={singlecomment.comment_id}>
+                    <ListItem
+                      style={{
+                        marginBottom: '0.2vh',
+                        border: '4px solid black',
+                      }}
+                      key={singlecomment.comment_id}
+                    >
                       <Typography>{singlecomment.comment}</Typography>
                     </ListItem>
                   );
