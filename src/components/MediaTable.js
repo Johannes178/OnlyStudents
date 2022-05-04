@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import {CircularProgress, ImageList} from '@mui/material';
+import {CircularProgress, ImageList, Stack} from '@mui/material';
 import {useMedia} from '../hooks/ApiHooks';
 import {useWindowSize} from '../hooks/WindowHooks';
 import MediaRow from './MediaRow';
@@ -16,19 +16,27 @@ const MediaTable = ({allFiles = true}) => {
       {loading ? (
         <CircularProgress />
       ) : (
-        <ImageList
-          variant="masonry"
-          cols={windowSize.width > 768 ? 3 : 2}
-          gap={8}
-        >
+        <ImageList variant="masonry" cols={windowSize.width > 1920 ? 1 : 1}>
           {mediaArray.map((item, index) => {
             return (
-              <MediaRow
-                key={index}
-                file={item}
-                userId={user.user_id}
-                deleteMedia={deleteMedia}
-              />
+              // eslint-disable-next-line react/jsx-key
+              <Stack
+                item
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                marginTop={'6vh'}
+                sx={{flexGrow: 1}}
+              >
+                <MediaRow
+                  key={index}
+                  file={item}
+                  userId={user.user_id}
+                  deleteMedia={deleteMedia}
+                />
+              </Stack>
             );
           })}
         </ImageList>

@@ -29,9 +29,10 @@ const Nav = () => {
 
   return (
     <Box>
-      <AppBar color="color4">
+      <AppBar className="appbar" color="color4">
         <Toolbar>
           <Typography
+            id="logolink"
             variant="h6"
             component={Link}
             to={user ? '/huutiset' : '/'}
@@ -41,17 +42,28 @@ const Nav = () => {
           >
             OnlyStudents
           </Typography>
-          <Button component={Link} to={user ? '/huutiset' : ''} color="color3">
+          <Button
+            id="appbar"
+            component={Link}
+            to={user ? '/huutiset' : ''}
+            color="color3"
+          >
             {user ? 'Huutiset' : ''}
           </Button>
           <Button
+            id="appbar"
             component={Link}
             to={user ? '/keksustelu' : ''}
             color="color3"
           >
             {user ? 'Keksustelu' : ''}
           </Button>
-          <Button component={Link} to={user ? '/profile' : ''} color="color3">
+          <Button
+            id="appbar"
+            component={Link}
+            to={user ? '/profile' : ''}
+            color="color3"
+          >
             {user ? 'Profiili' : ''}
           </Button>
         </Toolbar>

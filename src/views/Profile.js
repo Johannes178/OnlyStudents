@@ -7,7 +7,6 @@ import {
   Button,
   Card,
   CardContent,
-  Grid,
   List,
   ListItem,
   ListItemAvatar,
@@ -42,13 +41,12 @@ const Profile = () => {
   return (
     <>
       {' '}
-      <Grid
-        container
+      <Stack
         spacing={0}
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{minHeight: '75vh'}}
+        style={{minHeight: '79vh'}}
       >
         <BackButton />
         <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
@@ -59,30 +57,25 @@ const Profile = () => {
             sx={{
               backgroundColor: '#FFC120',
               boxShadow: 'none',
-              padding: '20px',
+              margin: '0',
             }}
           >
-            <CardContent style={{padding: '0'}}>
+            <CardContent style={{margin: '0'}}>
               <List>
-                <ListItem>
-                  <ListItemAvatar
-                    sx={{
-                      width: '320px',
-                      height: '320px',
-                      border: '4px solid black',
-                      borderRadius: '50%',
-                    }}
-                  >
+                <ListItem disablePadding>
+                  <ListItemAvatar>
                     <Avatar
-                      variant="square"
+                      disablePadding
+                      variant="circle"
                       src={avatar.filename}
                       imgProps={{
                         alt: `${user.username}'s profile image`,
                       }}
                       sx={{
-                        width: '100%',
+                        border: '10px solid black',
+                        variant: 'contained',
                         height: '100%',
-                        borderRadius: '50%',
+                        width: '100%',
                       }}
                     />
                   </ListItemAvatar>
@@ -104,52 +97,57 @@ const Profile = () => {
                 </ListItem>
               </List>
             </CardContent>
-            <Stack alignItems="center" justifyContent="center">
-              <Button
-                component={Link}
-                to={user ? '/editprofile' : ''}
-                className="button"
-                color="color5"
-                type="submit"
-                variant="contained"
-                style={{
-                  border: '4px solid black',
-                  minHeight: '20px',
-                  minWidth: '20px',
-                  maxHeight: '50px',
-                  maxWidth: '250px',
-                  marginTop: '17px',
-                  marginBottom: '17px',
-                  textAlign: 'center',
-                }}
-              >
-                {user ? 'Muokkaa profiilia' : ''}
-              </Button>
-              <Button
-                component={Link}
-                to={user ? '/logout' : ''}
-                className="buttonReject"
-                color="color5"
-                type="submit"
-                variant="contained"
-                style={{
-                  border: '4px solid black',
-                  minHeight: '20px',
-                  minWidth: '20px',
-                  maxHeight: '50px',
-                  maxWidth: '200px',
-                  marginTop: '17px',
-                  marginBottom: '17px',
-                  marginRight: '15px',
-                  textAlign: 'center',
-                }}
-              >
-                {user ? 'Kirjaudu ulos' : ''}
-              </Button>
-            </Stack>
           </Card>
         )}
-      </Grid>
+        <Stack spacing={3} direction="column" marginRight="2vh">
+          <Button
+            component={Link}
+            to={user ? '/editprofile' : ''}
+            className="button"
+            color="color5"
+            type="submit"
+            variant="contained"
+            style={{
+              border: '4px solid black',
+              maxHeight: '5vh',
+              maxWidth: '50vh',
+              minHeight: '7vh',
+              minWidth: '15vh',
+            }}
+          >
+            {user ? (
+              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                Muokkaa
+              </Typography>
+            ) : (
+              ''
+            )}
+          </Button>
+          <Button
+            component={Link}
+            to={user ? '/logout' : ''}
+            className="button"
+            color="color5"
+            type="submit"
+            variant="contained"
+            style={{
+              border: '4px solid black',
+              maxHeight: '5vh',
+              maxWidth: '50vh',
+              minHeight: '7vh',
+              minWidth: '15vh',
+            }}
+          >
+            {user ? (
+              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                Kirjaudu ulos
+              </Typography>
+            ) : (
+              ''
+            )}
+          </Button>
+        </Stack>{' '}
+      </Stack>
     </>
   );
 };
