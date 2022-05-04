@@ -91,7 +91,7 @@ const Upload = () => {
           style={{
             minHeight: '100vh',
             width: '80vw',
-            backgroundColor: 'white',
+
             margin: 'auto',
           }}
         >
@@ -118,10 +118,7 @@ const Upload = () => {
               className="inputfield2"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
@@ -135,8 +132,10 @@ const Upload = () => {
               />
             </Box>
             <TextValidator
+              fullWidth
               placeholder="Otsikko"
               name="title"
+              label="Otsikko"
               onChange={handleInputChange}
               value={inputs.title}
               validators={validators.title}
@@ -148,17 +147,16 @@ const Upload = () => {
               className="inputfield2"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
 
             <TextValidator
+              fullWidth
               placeholder="Kuvateksti"
               name="description"
+              label="kuvateksti"
               onChange={handleInputChange}
               value={inputs.description}
               validators={validators.description}
@@ -170,10 +168,7 @@ const Upload = () => {
               className="inputfield2"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
