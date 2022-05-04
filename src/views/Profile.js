@@ -63,7 +63,7 @@ const Profile = () => {
             <CardContent style={{margin: '0'}}>
               <List>
                 <ListItem disablePadding>
-                  <ListItemAvatar>
+                  <ListItemAvatar style={{width: '320px', height: '320px'}}>
                     <Avatar
                       disablePadding
                       variant="circle"
@@ -99,7 +99,12 @@ const Profile = () => {
             </CardContent>
           </Card>
         )}
-        <Stack spacing={3} direction="column" marginRight="2vh">
+        <Stack
+          spacing={3}
+          direction="column"
+          marginRight="2vh"
+          marginBottom="20px"
+        >
           <Button
             component={Link}
             to={user ? '/editprofile' : ''}
@@ -126,7 +131,7 @@ const Profile = () => {
           <Button
             component={Link}
             to={user ? '/logout' : ''}
-            className="button"
+            className="deleteButton"
             color="color5"
             type="submit"
             variant="contained"
