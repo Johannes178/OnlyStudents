@@ -57,6 +57,7 @@ const LoginForm = () => {
           <TextField
             fullWidth
             placeholder="käyttäjänimi"
+            label="käyttäjänimi"
             name="username"
             onChange={handleInputChange}
             value={inputs.username}
@@ -64,16 +65,14 @@ const LoginForm = () => {
             className="inputfield"
             sx={{
               '& .MuiOutlinedInput-root': {
-                '& > fieldset': {border: 'none'},
-              },
-              '& label.Mui-focused': {
-                display: 'none',
+                '& > fieldset': {border: '4px solid black'},
               },
             }}
           />
           <TextField
             fullWidth
             placeholder="salasana"
+            label="salasana"
             name="password"
             type="password"
             onChange={handleInputChange}
@@ -82,10 +81,7 @@ const LoginForm = () => {
             className="inputfield"
             sx={{
               '& .MuiOutlinedInput-root': {
-                '& > fieldset': {border: 'none'},
-              },
-              '& label.Mui-focused': {
-                display: 'none',
+                '& > fieldset': {border: '4px solid black'},
               },
             }}
           />

@@ -113,10 +113,7 @@ const RegisterForm = (setToggle) => {
               className="inputfield"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
@@ -134,10 +131,7 @@ const RegisterForm = (setToggle) => {
               className="inputfield"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
@@ -155,10 +149,7 @@ const RegisterForm = (setToggle) => {
               className="inputfield"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
@@ -176,10 +167,7 @@ const RegisterForm = (setToggle) => {
               className="inputfield"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />
@@ -196,10 +184,7 @@ const RegisterForm = (setToggle) => {
               className="inputfield"
               sx={{
                 '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
+                  '& > fieldset': {border: '4px solid black'},
                 },
               }}
             />

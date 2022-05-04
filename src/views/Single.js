@@ -4,18 +4,30 @@ import {Typography, Grid} from '@mui/material';
 import {safeParseJson} from '../utils/functions';
 import BackButton from '../components/BackButton';
 import {useEffect, useState} from 'react';
-import {useTag} from '../hooks/ApiHooks';
+import {useTag, useUser} from '../hooks/ApiHooks';
 
 const Single = () => {
   const [avatar, setAvatar] = useState({});
+  const [owner, setOwner] = useState('seppo');
   const location = useLocation();
   console.log(location);
   const file = location.state.file;
   const {description} = safeParseJson(file.description) || {
     description: file.description,
   };
-
   const {getTag} = useTag();
+  const {getUserById} = useUser();
+
+  const getUser = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const user = await getUserById(file.user_id, token);
+      console.log(user);
+      setOwner(user.username);
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const fetchAvatar = async () => {
     try {
@@ -32,6 +44,7 @@ const Single = () => {
 
   useEffect(() => {
     fetchAvatar();
+    getUser();
   }, []);
 
   console.log(avatar);
@@ -51,7 +64,7 @@ const Single = () => {
             justifyContent="center"
             style={{maxWidth: '100%', maxHeight: '100%', minHeight: '90vh'}}
           >
-            <Typography variant="subtitle2">{file.user_id}</Typography>
+            <Typography variant="subtitle2">{owner}</Typography>
             <Typography component="h3" variant="h4">
               {file.title}
             </Typography>
@@ -65,6 +78,7 @@ const Single = () => {
               sx={{
                 maxWidth: '20%',
                 maxHeight: '30vh',
+                border: '4px solid black',
               }}
             />{' '}
             <Typography>{description}</Typography>
