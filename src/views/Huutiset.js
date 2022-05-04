@@ -3,10 +3,16 @@ import {Typography, Button} from '@mui/material';
 import Nav from '../components/Nav';
 import {Link} from 'react-router-dom';
 import IosShareIcon from '@mui/icons-material/IosShare';
+import {motion} from 'framer-motion';
 
 const Huutiset = () => {
   return (
     <>
+      <motion.div
+        initial={{opacity: 0, y: 200}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
       <Nav />
 
       <Button

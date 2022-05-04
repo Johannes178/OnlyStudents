@@ -7,6 +7,7 @@ import {appID} from '../utils/variables';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import BackButton from '../components/BackButton';
 import {Box} from '@mui/system';
+import {motion} from 'framer-motion';
 
 const Upload = () => {
   const [preview, setPreview] = useState('logo192.png');
@@ -74,6 +75,11 @@ const Upload = () => {
 
   return (
     <>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
       <Grid container>
         <Grid item xs={12}>
           <BackButton />

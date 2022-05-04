@@ -5,6 +5,7 @@ import {safeParseJson} from '../utils/functions';
 import BackButton from '../components/BackButton';
 import {useEffect, useState} from 'react';
 import {useTag} from '../hooks/ApiHooks';
+import {motion} from 'framer-motion';
 
 const Single = () => {
   const [avatar, setAvatar] = useState({});
@@ -38,6 +39,11 @@ const Single = () => {
 
   return (
     <>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
       <BackButton />
       {file && (
         <Grid container>

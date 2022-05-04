@@ -6,6 +6,7 @@ import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import {safeParseJson} from '../utils/functions';
 import {mediaUrl} from '../utils/variables';
 import BackButton from '../components/BackButton';
+import {motion} from 'framer-motion';
 
 const Modify = () => {
   const location = useLocation();
@@ -64,6 +65,11 @@ const Modify = () => {
 
   return (
     <>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
       <BackButton />
 
       <Grid

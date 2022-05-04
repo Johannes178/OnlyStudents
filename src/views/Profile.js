@@ -2,6 +2,8 @@ import {useContext, useEffect, useState} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
 import {useTag} from '../hooks/ApiHooks';
 import {mediaUrl} from '../utils/variables';
+import {motion} from 'framer-motion';
+
 import {
   Avatar,
   Button,
@@ -40,7 +42,11 @@ const Profile = () => {
 
   return (
     <>
-      {' '}
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>{' '}
       <Stack
         spacing={0}
         direction="column"
