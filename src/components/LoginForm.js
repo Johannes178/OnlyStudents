@@ -64,7 +64,7 @@ const LoginForm = () => {
             className="inputfield"
             sx={{
               '& .MuiOutlinedInput-root': {
-                '& > fieldset': {border: 'none'},
+                '& > fieldset': {border: '4px solid black'},
               },
               '& label.Mui-focused': {
                 display: 'none',
@@ -82,7 +82,7 @@ const LoginForm = () => {
             className="inputfield"
             sx={{
               '& .MuiOutlinedInput-root': {
-                '& > fieldset': {border: 'none'},
+                '& > fieldset': {border: '4px solid black'},
               },
               '& label.Mui-focused': {
                 display: 'none',
