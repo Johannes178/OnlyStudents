@@ -106,7 +106,7 @@ const Modify = () => {
                 style={{marginBottom: '30px'}}
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {border: 'none'},
+                    '& > fieldset': {border: '4px solid black'},
                   },
                   '& label.Mui-focused': {
                     display: 'none',
@@ -125,7 +125,7 @@ const Modify = () => {
                 style={{marginBottom: '30px'}}
                 sx={{
                   '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {border: 'none'},
+                    '& > fieldset': {border: '4px solid black'},
                   },
                   '& label.Mui-focused': {
                     display: 'none',

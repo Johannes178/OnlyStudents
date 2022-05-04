@@ -1,17 +1,23 @@
 import {useLocation} from 'react-router-dom';
 import {mediaUrl} from '../utils/variables';
-import {Typography, Grid} from '@mui/material';
+import {Typography, Grid, List, ListItem} from '@mui/material';
 import {safeParseJson} from '../utils/functions';
 import BackButton from '../components/BackButton';
 import {useEffect, useState} from 'react';
-import {useTag} from '../hooks/ApiHooks';
 import {motion} from 'framer-motion';
+import CommentForm from '../components/CommentRow';
+import {useComments, useTag, useUser} from '../hooks/ApiHooks';
 
 const Single = () => {
   const [avatar, setAvatar] = useState({});
+  const [setOwner] = useState(null);
+  const {getUserById} = useUser();
+
   const location = useLocation();
   console.log(location);
   const file = location.state.file;
+  const {getComments} = useComments();
+  const [comments, setCommentsData] = useState(null);
   const {description} = safeParseJson(file.description) || {
     description: file.description,
   };
@@ -31,9 +37,42 @@ const Single = () => {
     }
   };
 
+  const getCommentsit = async () => {
+    try {
+      const comments = await getComments(file.file_id);
+      setCommentsData(comments);
+    } catch (e) {
+      console.log(e.message);
+    }
+  };
+
   useEffect(() => {
-    fetchAvatar();
-  }, []);
+    const interval = setInterval(() => {
+      fetchAvatar();
+      getCommentsit();
+    }, 10000);
+    (async () => {
+      if (!open) {
+        try {
+          setOwner(
+            await getUserById(localStorage.getItem('token'), file.user_id)
+          );
+          const result = await getTag('avatar_' + file.user_id);
+
+          if (result.length > 0) {
+            const image = result.pop().filename;
+            setAvatar(mediaUrl + image);
+          }
+        } catch (e) {
+          console.log(e.message);
+        }
+
+        getCommentsit();
+      }
+    })();
+
+    return () => clearInterval(interval);
+  }, [open]);
 
   console.log(avatar);
 
@@ -76,6 +115,16 @@ const Single = () => {
                 }}
               />{' '}
               <Typography>{description}</Typography>
+              <List>
+                {comments?.map((singlecomment) => {
+                  return (
+                    <ListItem key={singlecomment.comment_id}>
+                      <Typography>{singlecomment.comment}</Typography>
+                    </ListItem>
+                  );
+                })}
+                <CommentForm fileId={file.file_id} />
+              </List>
             </Grid>
           </Grid>
         )}

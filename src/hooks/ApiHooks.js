@@ -184,4 +184,51 @@ const useTag = () => {
   return {getTag, postTag};
 };
 
-export {useMedia, useLogin, useUser, useTag};
+const useComments = () => {
+  const [loading, setLoading] = useState(false);
+
+  const getComments = async (fileId) => {
+    try {
+      const response = await fetchJson(baseUrl + 'comments/file/' + fileId);
+      return response;
+    } catch {
+      alert('error');
+    }
+  };
+
+  const postComment = async (fd, token) => {
+    setLoading(true);
+    const fetchOptions = {
+      method: 'POST',
+      headers: {
+        'x-access-token': token,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(fd),
+    };
+    try {
+      return await fetchJson(baseUrl + 'comments', fetchOptions);
+    } catch (e) {
+      throw new Error('posting comment failed');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // const putComments = async () => {
+
+  // };
+
+  const deleteComments = async (fileId, token) => {
+    const fetchOptions = {
+      method: 'DELETE',
+      headers: {
+        'x-access-token': token,
+      },
+    };
+    return await fetchJson(baseUrl + 'comment/' + fileId, fetchOptions);
+  };
+  return {deleteComments, getComments, postComment, loading};
+};
+
+export {useMedia, useLogin, useUser, useTag, useComments};
