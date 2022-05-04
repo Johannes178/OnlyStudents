@@ -46,114 +46,116 @@ const Profile = () => {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-      ></motion.div>{' '}
-      <Stack
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        style={{minHeight: '79vh'}}
       >
-        <BackButton />
-        <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
-          Profiili
-        </Typography>
-        {user && (
-          <Card
-            sx={{
-              backgroundColor: '#FFC120',
-              boxShadow: 'none',
-              margin: '0',
-            }}
-          >
-            <CardContent style={{margin: '0'}}>
-              <List>
-                <ListItem disablePadding>
-                  <ListItemAvatar>
-                    <Avatar
-                      disablePadding
-                      variant="circle"
-                      src={avatar.filename}
-                      imgProps={{
-                        alt: `${user.username}'s profile image`,
-                      }}
+        {' '}
+        <Stack
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          style={{minHeight: '79vh'}}
+        >
+          <BackButton />
+          <Typography component="h1" variant="h2" style={{marginTop: '70px'}}>
+            Profiili
+          </Typography>
+          {user && (
+            <Card
+              sx={{
+                backgroundColor: '#FFC120',
+                boxShadow: 'none',
+                margin: '0',
+              }}
+            >
+              <CardContent style={{margin: '0'}}>
+                <List>
+                  <ListItem disablePadding>
+                    <ListItemAvatar>
+                      <Avatar
+                        disablePadding
+                        variant="circle"
+                        src={avatar.filename}
+                        imgProps={{
+                          alt: `${user.username}'s profile image`,
+                        }}
+                        sx={{
+                          border: '10px solid black',
+                          variant: 'contained',
+                          height: '100%',
+                          width: '100%',
+                        }}
+                      />
+                    </ListItemAvatar>
+                  </ListItem>
+                  <ListItem style={{textAlign: 'center', paddingBottom: '0'}}>
+                    <ListItemText
                       sx={{
-                        border: '10px solid black',
-                        variant: 'contained',
-                        height: '100%',
-                        width: '100%',
+                        '& .MuiTypography-root': {
+                          fontSize: '1.5rem',
+                          fontWeight: '800',
+                          paddingBottom: '0',
+                        },
                       }}
+                      primary={user.username}
                     />
-                  </ListItemAvatar>
-                </ListItem>
-                <ListItem style={{textAlign: 'center', paddingBottom: '0'}}>
-                  <ListItemText
-                    sx={{
-                      '& .MuiTypography-root': {
-                        fontSize: '1.5rem',
-                        fontWeight: '800',
-                        paddingBottom: '0',
-                      },
-                    }}
-                    primary={user.username}
-                  />
-                </ListItem>
-                <ListItem style={{textAlign: 'center', paddingTop: '0'}}>
-                  <ListItemText primary={user.email} />
-                </ListItem>
-              </List>
-            </CardContent>
-          </Card>
-        )}
-        <Stack spacing={3} direction="column" marginRight="2vh">
-          <Button
-            component={Link}
-            to={user ? '/editprofile' : ''}
-            className="button"
-            color="color5"
-            type="submit"
-            variant="contained"
-            style={{
-              border: '4px solid black',
-              maxHeight: '5vh',
-              maxWidth: '50vh',
-              minHeight: '7vh',
-              minWidth: '15vh',
-            }}
-          >
-            {user ? (
-              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
-                Muokkaa
-              </Typography>
-            ) : (
-              ''
-            )}
-          </Button>
-          <Button
-            component={Link}
-            to={user ? '/logout' : ''}
-            className="button"
-            color="color5"
-            type="submit"
-            variant="contained"
-            style={{
-              border: '4px solid black',
-              maxHeight: '5vh',
-              maxWidth: '50vh',
-              minHeight: '7vh',
-              minWidth: '15vh',
-            }}
-          >
-            {user ? (
-              <Typography textAlign="center" sx={{fontSize: '1rem'}}>
-                Kirjaudu ulos
-              </Typography>
-            ) : (
-              ''
-            )}
-          </Button>
-        </Stack>{' '}
-      </Stack>
+                  </ListItem>
+                  <ListItem style={{textAlign: 'center', paddingTop: '0'}}>
+                    <ListItemText primary={user.email} />
+                  </ListItem>
+                </List>
+              </CardContent>
+            </Card>
+          )}
+          <Stack spacing={3} direction="column" marginRight="2vh">
+            <Button
+              component={Link}
+              to={user ? '/editprofile' : ''}
+              className="button"
+              color="color5"
+              type="submit"
+              variant="contained"
+              style={{
+                border: '4px solid black',
+                maxHeight: '5vh',
+                maxWidth: '50vh',
+                minHeight: '7vh',
+                minWidth: '15vh',
+              }}
+            >
+              {user ? (
+                <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                  Muokkaa
+                </Typography>
+              ) : (
+                ''
+              )}
+            </Button>
+            <Button
+              component={Link}
+              to={user ? '/logout' : ''}
+              className="button"
+              color="color5"
+              type="submit"
+              variant="contained"
+              style={{
+                border: '4px solid black',
+                maxHeight: '5vh',
+                maxWidth: '50vh',
+                minHeight: '7vh',
+                minWidth: '15vh',
+              }}
+            >
+              {user ? (
+                <Typography textAlign="center" sx={{fontSize: '1rem'}}>
+                  Kirjaudu ulos
+                </Typography>
+              ) : (
+                ''
+              )}
+            </Button>
+          </Stack>{' '}
+        </Stack>
+      </motion.div>
     </>
   );
 };

@@ -79,116 +79,98 @@ const Upload = () => {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-      ></motion.div>
-      <Grid container>
-        <Grid item xs={12}>
-          <BackButton />
-        </Grid>
+      >
+        <Grid container>
+          <Grid item xs={12}>
+            <BackButton />
+          </Grid>
 
-        <Grid
-          id="container"
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          backgroundColor="color5"
-          style={{
-            minHeight: '100vh',
-            width: '80vw',
-            backgroundColor: 'white',
-            margin: 'auto',
-          }}
-        >
-          <Typography
-            component="h1"
-            variant="h2"
-            gutterBottom
+          <Grid
+            id="container"
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            backgroundColor="color5"
             style={{
-              marginTop: '100px',
-              marginBottom: '40px',
-              textAlign: 'center',
-              fontSize: '2em',
+              minHeight: '100vh',
+              width: '80vw',
+              backgroundColor: 'white',
+              margin: 'auto',
             }}
           >
-            Lisää julkaisu
-          </Typography>
-          <ValidatorForm onSubmit={handleSubmit}>
-            <TextValidator
-              type="file"
-              name="file"
-              accept="image/*, video/*, audio/*"
-              onChange={handleInputChange}
-              style={{marginBottom: '30px'}}
-              className="inputfield2"
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
-                },
-              }}
-            />
-            <Box style={{display: 'flex', justifyContent: 'center'}}>
-              <img
-                style={{
-                  maxWidth: '40vw',
-                }}
-                src={preview}
-                alt="preview"
-              />
-            </Box>
-
-            <TextValidator
-              placeholder="Kuvateksti"
-              name="description"
-              onChange={handleInputChange}
-              value={inputs.description}
-              validators={validators.description}
-              errorMessages={errorMessages.description}
+            <Typography
+              component="h1"
+              variant="h2"
+              gutterBottom
               style={{
-                marginTop: '20px',
-                marginBottom: '20px',
+                marginTop: '100px',
+                marginBottom: '40px',
+                textAlign: 'center',
+                fontSize: '2em',
               }}
-              className="inputfield2"
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
-                },
-              }}
-            />
+            >
+              Lisää julkaisu
+            </Typography>
+            <ValidatorForm onSubmit={handleSubmit}>
+              <TextValidator
+                type="file"
+                name="file"
+                accept="image/*, video/*, audio/*"
+                onChange={handleInputChange}
+                style={{marginBottom: '30px'}}
+                className="inputfield2"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {border: 'none'},
+                  },
+                  '& label.Mui-focused': {
+                    display: 'none',
+                  },
+                }}
+              />
+              <Box style={{display: 'flex', justifyContent: 'center'}}>
+                <img
+                  style={{
+                    maxWidth: '40vw',
+                  }}
+                  src={preview}
+                  alt="preview"
+                />
+              </Box>
 
-            <Box id="buttonbox">
-              <Button
-                color="color5"
-                type="submit"
-                variant="contained"
-                className="deleteButton"
-                onClick={() => {
-                  navigate('/huutiset');
-                }}
+              <TextValidator
+                placeholder="Kuvateksti"
+                name="description"
+                onChange={handleInputChange}
+                value={inputs.description}
+                validators={validators.description}
+                errorMessages={errorMessages.description}
                 style={{
-                  border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '5vh',
-                  marginTop: '17px',
+                  marginTop: '20px',
+                  marginBottom: '20px',
                 }}
-              >
-                Peruuta
-              </Button>
-              {loading ? (
-                <CircularProgress />
-              ) : (
+                className="inputfield2"
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {border: 'none'},
+                  },
+                  '& label.Mui-focused': {
+                    display: 'none',
+                  },
+                }}
+              />
+
+              <Box id="buttonbox">
                 <Button
                   color="color5"
                   type="submit"
                   variant="contained"
-                  disabled={!inputs.file}
-                  className="saveButton"
+                  className="deleteButton"
+                  onClick={() => {
+                    navigate('/huutiset');
+                  }}
                   style={{
                     border: '4px solid black',
                     minHeight: '5vh',
@@ -196,13 +178,32 @@ const Upload = () => {
                     marginTop: '17px',
                   }}
                 >
-                  Julkaise
+                  Peruuta
                 </Button>
-              )}
-            </Box>
-          </ValidatorForm>
+                {loading ? (
+                  <CircularProgress />
+                ) : (
+                  <Button
+                    color="color5"
+                    type="submit"
+                    variant="contained"
+                    disabled={!inputs.file}
+                    className="saveButton"
+                    style={{
+                      border: '4px solid black',
+                      minHeight: '5vh',
+                      minWidth: '5vh',
+                      marginTop: '17px',
+                    }}
+                  >
+                    Julkaise
+                  </Button>
+                )}
+              </Box>
+            </ValidatorForm>
+          </Grid>
         </Grid>
-      </Grid>
+      </motion.div>
     </>
   );
 };

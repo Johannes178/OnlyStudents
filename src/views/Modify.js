@@ -69,115 +69,116 @@ const Modify = () => {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-      ></motion.div>
-      <BackButton />
-
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        backgroundColor="color5"
-        style={{minHeight: '20vh'}}
       >
-        <Grid item xs={12}>
-          <Typography
-            marginLeft={2.4}
-            component="h1"
-            variant="h2"
-            sx={{marginBottom: '5vh', marginTop: '10vh', fontSize: '2.3rem'}}
-          >
-            Muokkaa
-          </Typography>
-        </Grid>
+        <BackButton />
 
-        <Grid item xs={12}>
-          <ValidatorForm onSubmit={handleSubmit}>
-            <TextValidator
-              fullWidth
-              placeholder="title"
-              name="title"
-              onChange={handleInputChange}
-              value={inputs.title}
-              validators={validators.title}
-              errorMessages={errorMessages.title}
-              className="inputfield"
-              style={{marginBottom: '30px'}}
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
-                },
-              }}
-            />
-            <TextValidator
-              fullWidth
-              placeholder="description"
-              name="description"
-              onChange={handleInputChange}
-              value={inputs.description}
-              validators={validators.description}
-              errorMessages={errorMessages.description}
-              className="inputfield"
-              style={{marginBottom: '30px'}}
-              sx={{
-                '& .MuiOutlinedInput-root': {
-                  '& > fieldset': {border: 'none'},
-                },
-                '& label.Mui-focused': {
-                  display: 'none',
-                },
-              }}
-            />
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          backgroundColor="color5"
+          style={{minHeight: '20vh'}}
+        >
+          <Grid item xs={12}>
+            <Typography
+              marginLeft={2.4}
+              component="h1"
+              variant="h2"
+              sx={{marginBottom: '5vh', marginTop: '10vh', fontSize: '2.3rem'}}
+            >
+              Muokkaa
+            </Typography>
+          </Grid>
 
-            {loading ? (
-              <CircularProgress />
-            ) : (
-              <Button
+          <Grid item xs={12}>
+            <ValidatorForm onSubmit={handleSubmit}>
+              <TextValidator
                 fullWidth
-                color="color5"
-                type="submit"
-                variant="contained"
-                className="button"
-                style={{
-                  border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '5vh',
-                  marginTop: '17px',
+                placeholder="title"
+                name="title"
+                onChange={handleInputChange}
+                value={inputs.title}
+                validators={validators.title}
+                errorMessages={errorMessages.title}
+                className="inputfield"
+                style={{marginBottom: '30px'}}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {border: 'none'},
+                  },
+                  '& label.Mui-focused': {
+                    display: 'none',
+                  },
                 }}
-              >
-                Save
-              </Button>
-            )}
-          </ValidatorForm>
-        </Grid>
-      </Grid>
-      {file && (
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <img
-              style={{
-                marginTop: '7vh',
-                maxWidth: '80%',
-                maxHeight: '60vh',
-              }}
-              src={mediaUrl + file.filename}
-              alt="preview"
-            />
+              />
+              <TextValidator
+                fullWidth
+                placeholder="description"
+                name="description"
+                onChange={handleInputChange}
+                value={inputs.description}
+                validators={validators.description}
+                errorMessages={errorMessages.description}
+                className="inputfield"
+                style={{marginBottom: '30px'}}
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '& > fieldset': {border: 'none'},
+                  },
+                  '& label.Mui-focused': {
+                    display: 'none',
+                  },
+                }}
+              />
+
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  fullWidth
+                  color="color5"
+                  type="submit"
+                  variant="contained"
+                  className="button"
+                  style={{
+                    border: '4px solid black',
+                    minHeight: '5vh',
+                    minWidth: '5vh',
+                    marginTop: '17px',
+                  }}
+                >
+                  Save
+                </Button>
+              )}
+            </ValidatorForm>
           </Grid>
         </Grid>
-      )}
+        {file && (
+          <Grid container>
+            <Grid
+              item
+              xs={12}
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <img
+                style={{
+                  marginTop: '7vh',
+                  maxWidth: '80%',
+                  maxHeight: '60vh',
+                }}
+                src={mediaUrl + file.filename}
+                alt="preview"
+              />
+            </Grid>
+          </Grid>
+        )}
+      </motion.div>
     </>
   );
 };

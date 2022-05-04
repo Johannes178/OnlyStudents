@@ -12,30 +12,31 @@ const Huutiset = () => {
         initial={{opacity: 0, y: 200}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-      ></motion.div>
-      <Nav />
+      >
+        <Nav />
 
-      <Button
-        component={Link}
-        to={'/upload'}
-        color="color5"
-        variant="contained"
-        className="uploadbutton"
-        startIcon={<IosShareIcon />}
-        style={{
-          border: '4px solid black',
-          minHeight: '5vh',
-          minWidth: '5vh',
-          top: '8vh',
-          left: '1vh',
-          position: 'fixed',
-        }}
-      ></Button>
+        <Button
+          component={Link}
+          to={'/upload'}
+          color="color5"
+          variant="contained"
+          className="uploadbutton"
+          startIcon={<IosShareIcon />}
+          style={{
+            border: '4px solid black',
+            minHeight: '5vh',
+            minWidth: '5vh',
+            top: '8vh',
+            left: '1vh',
+            position: 'fixed',
+          }}
+        ></Button>
 
-      <Typography component="h1" variant="h2">
-        Huutiset
-      </Typography>
-      <MediaTable />
+        <Typography component="h1" variant="h2">
+          Huutiset
+        </Typography>
+        <MediaTable />
+      </motion.div>
     </>
   );
 };

@@ -43,40 +43,43 @@ const Single = () => {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
-      ></motion.div>
-      <BackButton />
-      {file && (
-        <Grid container>
-          <Grid
-            item
-            xs={12}
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            style={{maxWidth: '100%', maxHeight: '100%', minHeight: '90vh'}}
-          >
-            <Typography variant="subtitle2">{file.user_id}</Typography>
-            <Typography component="h3" variant="h4">
-              {file.title}
-            </Typography>
+      >
+        <BackButton />
+        {file && (
+          <Grid container>
             <Grid
               item
-              component={file.media_type === 'image' ? 'img' : file.media_type}
-              controls={true}
-              poster={mediaUrl + file.screenshot}
-              src={mediaUrl + file.filename}
-              alt={file.title}
-              sx={{
-                maxWidth: '20%',
-                maxHeight: '30vh',
-              }}
-            />{' '}
-            <Typography>{description}</Typography>
+              xs={12}
+              container
+              spacing={0}
+              direction="column"
+              alignItems="center"
+              justifyContent="center"
+              style={{maxWidth: '100%', maxHeight: '100%', minHeight: '90vh'}}
+            >
+              <Typography variant="subtitle2">{file.user_id}</Typography>
+              <Typography component="h3" variant="h4">
+                {file.title}
+              </Typography>
+              <Grid
+                item
+                component={
+                  file.media_type === 'image' ? 'img' : file.media_type
+                }
+                controls={true}
+                poster={mediaUrl + file.screenshot}
+                src={mediaUrl + file.filename}
+                alt={file.title}
+                sx={{
+                  maxWidth: '20%',
+                  maxHeight: '30vh',
+                }}
+              />{' '}
+              <Typography>{description}</Typography>
+            </Grid>
           </Grid>
-        </Grid>
-      )}
+        )}
+      </motion.div>
     </>
   );
 };
