@@ -7,7 +7,7 @@ td {
   padding: 1rem;
   border-bottom: 1px solid grey;
 } */
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 550px) {
   #appbar {
      font-size: 0.6rem;
   }
@@ -18,6 +18,13 @@ td {
   #buttonbox {
     display: flex;
     flex-direction: column;
+  }}
+  @media only screen and (min-width: 550px) {
+  .uploadbutton {
+    box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000 !important;
+  }
+  .uploadbutton:hover {
+    box-shadow: 6px 6px 0px 3px #1ab8ae, 7px 7px 0px 6px #000 !important;
   }
 }
 #root,

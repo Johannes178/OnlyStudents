@@ -14,7 +14,7 @@ const Huutiset = () => {
         to={'/upload'}
         color="color5"
         variant="contained"
-        className="button"
+        className="uploadbutton"
         startIcon={<IosShareIcon />}
         style={{
           border: '4px solid black',
