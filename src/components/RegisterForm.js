@@ -202,23 +202,23 @@ const RegisterForm = (setToggle) => {
                   display: 'none',
                 },
               }}
-            />
+            />{' '}
+            <Button
+              color="color5"
+              type="submit"
+              variant="contained"
+              className="button"
+              style={{
+                border: '4px solid black',
+                minHeight: '5vh',
+                minWidth: '5vh',
+                marginTop: '17px',
+              }}
+            >
+              <ArrowForwardIosIcon />
+            </Button>
           </ValidatorForm>
         </Grid>
-        <Button
-          color="color5"
-          type="submit"
-          variant="contained"
-          className="button"
-          style={{
-            border: '4px solid black',
-            minHeight: '5vh',
-            minWidth: '5vh',
-            marginTop: '17px',
-          }}
-        >
-          <ArrowForwardIosIcon />
-        </Button>
       </Grid>
     </>
   );

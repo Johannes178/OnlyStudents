@@ -2,6 +2,7 @@ import MediaTable from '../components/MediaTable';
 import {Typography} from '@mui/material';
 import BackButton from '../components/BackButton';
 import {motion} from 'framer-motion';
+import React from 'react';
 
 const MyFiles = () => {
   return (

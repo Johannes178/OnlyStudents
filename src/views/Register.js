@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import RegisterForm from '../components/RegisterForm';
 import {motion} from 'framer-motion';
+import React from 'react';
 
 const Register = () => {
   return (

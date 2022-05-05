@@ -62,7 +62,7 @@ const Single = () => {
     getUser();
     const interval = setInterval(() => {
       getCommentsit();
-    }, 100000);
+    }, 1000);
 
     console.log(avatar);
 

@@ -2,6 +2,8 @@ import {useContext, useEffect, useState} from 'react';
 import {MediaContext} from '../contexts/MediaContext';
 import {useTag} from '../hooks/ApiHooks';
 import {mediaUrl} from '../utils/variables';
+import React from 'react';
+
 import {
   Avatar,
   Button,

@@ -2,6 +2,7 @@ import {useContext} from 'react';
 import {Navigate} from 'react-router-dom';
 import {MediaContext} from '../contexts/MediaContext';
 import {motion} from 'framer-motion';
+import React from 'react';
 
 const Logout = () => {
   const {user, setUser} = useContext(MediaContext);

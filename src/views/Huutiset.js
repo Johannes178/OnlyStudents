@@ -1,8 +1,9 @@
 import MediaTable from '../components/MediaTable';
-import {Typography, Button} from '@mui/material';
+import {Button} from '@mui/material';
 import {Link} from 'react-router-dom';
-import IosShareIcon from '@mui/icons-material/IosShare';
+import AddIcon from '@mui/icons-material/Add';
 import {motion} from 'framer-motion';
+import React from 'react';
 
 const Huutiset = () => {
   return (
@@ -18,7 +19,7 @@ const Huutiset = () => {
         color="color5"
         variant="contained"
         className="uploadbutton"
-        startIcon={<IosShareIcon />}
+        startIcon={<AddIcon />}
         style={{
           border: '4px solid black',
           minHeight: '5vh',
@@ -29,9 +30,6 @@ const Huutiset = () => {
         }}
       ></Button>
 
-      <Typography component="h1" variant="h2">
-        Huutiset
-      </Typography>
       <MediaTable />
     </>
   );

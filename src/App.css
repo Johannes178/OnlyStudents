@@ -7,6 +7,9 @@ td {
   padding: 1rem;
   border-bottom: 1px solid grey;
 } */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+
 @media only screen and (max-width: 550px) {
   #appbar {
      font-size: 0.6rem;
@@ -41,6 +44,12 @@ body {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  font-family: 'Syne', sans-serif;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
 }
 #buttonbox {
   margin-top: 20px;

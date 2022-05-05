@@ -53,14 +53,6 @@ const Nav = () => {
           <Button
             id="appbar"
             component={Link}
-            to={user ? '/keksustelu' : ''}
-            color="color3"
-          >
-            {user ? 'Keksustelu' : ''}
-          </Button>
-          <Button
-            id="appbar"
-            component={Link}
             to={user ? '/profile' : ''}
             color="color3"
           >

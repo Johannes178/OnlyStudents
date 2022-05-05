@@ -1,31 +1,9 @@
 import {Button, Stack} from '@mui/material';
-import {useContext, useEffect} from 'react';
-import {Link, useNavigate} from 'react-router-dom';
-import {MediaContext} from '../contexts/MediaContext';
-import {useUser} from '../hooks/ApiHooks';
+import {Link} from 'react-router-dom';
 import {motion} from 'framer-motion';
+import React from 'react';
+
 const Start = () => {
-  const {user, setUser} = useContext(MediaContext);
-  const {getUser} = useUser();
-  const navigate = useNavigate();
-
-  const fetchUser = async () => {
-    try {
-      const userData = await getUser(localStorage.getItem('token'));
-      console.log(userData);
-      setUser(userData);
-    } catch (err) {
-      setUser(null);
-      navigate('/');
-    }
-  };
-
-  useEffect(() => {
-    fetchUser();
-  }, []);
-
-  console.log(user, open);
-
   return (
     <motion.div
       initial={{opacity: 0}}
@@ -34,7 +12,6 @@ const Start = () => {
     >
       {' '}
       <Stack
-        container
         direction={{xs: 'column', sm: 'row'}}
         display="flex"
         justifyContent="center"
@@ -51,7 +28,7 @@ const Start = () => {
             minWidth: '15vh',
           }}
           component={Link}
-          to={user ? '/login' : '/login'}
+          to={'/login'}
           color="color5"
           variant="contained"
           className="button"
@@ -66,7 +43,7 @@ const Start = () => {
             minWidth: '15vh',
           }}
           component={Link}
-          to={user ? '/register' : '/register'}
+          to={'/register'}
           color="color5"
           variant="contained"
           className="button"
@@ -81,7 +58,7 @@ const Start = () => {
             minWidth: '15vh',
           }}
           component={Link}
-          to={user ? '/about' : '/about'}
+          to={'/about'}
           color="color5"
           variant="contained"
           className="button"

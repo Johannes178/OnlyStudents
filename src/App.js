@@ -30,18 +30,45 @@ const App = () => {
           <Container maxWidth="lg">
             <Nav />
             <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Start />} />
-              <Route path="/huutiset" element={<Huutiset />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/single" element={<Single />} />
-              <Route path="/logout" element={<Logout />} />
-              <Route path="/upload" element={<Upload />} />
-              <Route path="/myfiles" element={<MyFiles />} />
-              <Route path="/modify" element={<Modify />} />
-              <Route path="/editprofile" element={<EditProfile />} />
+              <Route path="/~johannvj/onlystudents/" element={<Start />} />
+              <Route
+                path="/~johannvj/onlystudents/huutiset"
+                element={<Huutiset />}
+              />
+              <Route path="/~johannvj/onlystudents/login" element={<Login />} />
+              <Route path="/~johannvj/onlystudents/about" element={<About />} />
+              <Route
+                path="/~johannvj/onlystudents/register"
+                element={<Register />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/profile"
+                element={<Profile />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/single"
+                element={<Single />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/logout"
+                element={<Logout />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/upload"
+                element={<Upload />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/myfiles"
+                element={<MyFiles />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/modify"
+                element={<Modify />}
+              />
+              <Route
+                path="/~johannvj/onlystudents/editprofile"
+                element={<EditProfile />}
+              />
             </Routes>
           </Container>
         </ThemeProvider>

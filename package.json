@@ -1,7 +1,6 @@
 {
   "name": "onlystudents",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -51,5 +50,5 @@
     "eslint-plugin-react": "^7.29.4",
     "prettier": "^2.6.2"
   },
-  "homepage": "/"
+  "homepage": "."
 }

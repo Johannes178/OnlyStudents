@@ -7,6 +7,7 @@ import {safeParseJson} from '../utils/functions';
 import {mediaUrl} from '../utils/variables';
 import BackButton from '../components/BackButton';
 import {motion} from 'framer-motion';
+import React from 'react';
 
 const Modify = () => {
   const location = useLocation();
