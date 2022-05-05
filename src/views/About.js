@@ -1,19 +1,43 @@
-import {Typography} from '@mui/material';
-import {motion} from 'framer-motion';
+import {Typography, Grid} from '@mui/material';
+import BackButton from './../components/BackButton';
 
 const About = () => {
   return (
-    <motion.div
-      initial={{opacity: 0, y: 200}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
-    >
-      <Typography component="h1" variant="h2">
-        Tervetuloa OnlyStudentsiin Palvelun ideana on tavoittaa kaikki
-        opiskelijat, jotka turhautuvat tiedonhausta eri sovelluksista, ja tuoda
-        tapahtuma-, ja olennaistietoa suoraan yhteen paikkaan.
-      </Typography>
-    </motion.div>
+    <>
+      <BackButton />
+      <Grid
+        container
+        className="about"
+        style={{
+          fontSize: '1rem',
+          textAlign: 'center',
+          marginRight: 'auto',
+          width: '50%',
+          marginLeft: 'auto',
+        }}
+      >
+        <Grid
+          item
+          xs={12}
+          className="about aboutShadow"
+          margin={0}
+          style={{
+            marginTop: '30vh',
+            backgroundColor: '#ff5c00',
+            padding: '50px',
+            border: '4px solid black',
+          }}
+        >
+          <Typography margin={'10px'}>Tervetuloa OnlyStudentsiin </Typography>{' '}
+          <Typography>
+            {' '}
+            Palvelun ideana on tavoittaa kaikki opiskelijat, jotka turhautuvat
+            tiedonhausta eri sovelluksista, ja tuoda tapahtuma-, ja
+            olennaistietoa suoraan yhteen paikkaan.
+          </Typography>
+        </Grid>
+      </Grid>
+    </>
   );
 };
 export default About;
