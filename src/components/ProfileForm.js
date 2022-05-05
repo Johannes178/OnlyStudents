@@ -6,9 +6,12 @@ import {Grid} from '@mui/material';
 import {Button} from '@mui/material';
 import {TextValidator, ValidatorForm} from 'react-material-ui-form-validator';
 import {useEffect} from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {useNavigate} from 'react-router-dom';
+import {Typography} from '@mui/material';
+import {Box} from '@mui/material';
+import {CircularProgress} from '@mui/material';
+import {motion} from 'framer-motion';
 import BackButton from '../components/BackButton';
-// import {useNavigate} from 'react-router-dom';
 
 const ProfileForm = ({user}) => {
   /* const alkuarvot = {
@@ -32,8 +35,8 @@ const ProfileForm = ({user}) => {
   };
 
   const {putUser} = useUser();
-  // const navigate = useNavigate();
-  const {postMedia} = useMedia();
+  const navigate = useNavigate();
+  const {postMedia, loading} = useMedia();
   const {postTag} = useTag();
 
   const doRegister = async () => {
@@ -72,6 +75,7 @@ const ProfileForm = ({user}) => {
         console.log(tagData.message);
         navigate(-1);
       }*/
+      confirm('profiili päivitetty') && navigate(-1);
     } catch (err) {
       alert(err.message);
     }
@@ -95,16 +99,42 @@ const ProfileForm = ({user}) => {
 
   return (
     <>
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
+
+      <BackButton />
+
       <Grid
+        id="container"
         container
         spacing={0}
         direction="column"
         alignItems="center"
         justifyContent="center"
         backgroundColor="color5"
-        style={{minHeight: '75vh'}}
+        /* style={{
+          minHeight: '100vh',
+          width: '80vw',
+          backgroundColor: 'white',
+          margin: 'auto',
+        }}*/
       >
-        <BackButton />
+        <Typography
+          component="h1"
+          variant="h2"
+          gutterBottom
+          style={{
+            marginTop: '100px',
+            marginBottom: '40px',
+            textAlign: 'center',
+            fontSize: '2em',
+          }}
+        >
+          Muokkaa profiilia
+        </Typography>
         <Grid item xs={12} style={{maxWidth: '75vh'}}>
           <ValidatorForm id="update" onSubmit={handleSubmit}>
             <TextValidator
@@ -190,23 +220,46 @@ const ProfileForm = ({user}) => {
                 },
               }}
             />
+            <Box id="buttonbox">
+              <Button
+                color="color5"
+                type="submit"
+                variant="contained"
+                className="deleteButton"
+                onClick={() => {
+                  navigate('/profile');
+                }}
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vh',
+                  marginTop: '17px',
+                }}
+              >
+                Peruuta
+              </Button>
+              {loading ? (
+                <CircularProgress />
+              ) : (
+                <Button
+                  color="color5"
+                  type="submit"
+                  variant="contained"
+                  form="update"
+                  className="saveButton"
+                  style={{
+                    border: '4px solid black',
+                    minHeight: '5vh',
+                    minWidth: '5vh',
+                    marginTop: '17px',
+                  }}
+                >
+                  Tallenna
+                </Button>
+              )}
+            </Box>
           </ValidatorForm>
         </Grid>
-        <Button
-          color="color5"
-          type="submit"
-          variant="contained"
-          form="update"
-          className="button"
-          style={{
-            border: '4px solid black',
-            minHeight: '5vh',
-            minWidth: '5vh',
-            marginTop: '17px',
-          }}
-        >
-          <ArrowForwardIosIcon />
-        </Button>
       </Grid>
     </>
   );

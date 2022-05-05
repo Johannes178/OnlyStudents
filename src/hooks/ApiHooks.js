@@ -26,6 +26,8 @@ const useMedia = (showAllFiles, userId) => {
     try {
       setLoading(true);
       let media = await useTag().getTag(appID);
+      media.reverse();
+      console.log(media);
       // jos !showAllFiles, filteröi kirjautuneen
       // käyttäjän tiedostot media taulukkoon
       if (!showAllFiles) {

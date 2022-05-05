@@ -1,13 +1,17 @@
 import MediaTable from '../components/MediaTable';
 import {Typography, Button} from '@mui/material';
-import Nav from '../components/Nav';
 import {Link} from 'react-router-dom';
 import IosShareIcon from '@mui/icons-material/IosShare';
+import {motion} from 'framer-motion';
 
 const Huutiset = () => {
   return (
     <>
-      <Nav />
+      <motion.div
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      ></motion.div>
       <Button
         component={Link}
         to={'/upload'}

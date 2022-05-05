@@ -10,9 +10,9 @@ import {useComments, useTag, useUser} from '../hooks/ApiHooks';
 
 const Single = () => {
   const [avatar, setAvatar] = useState({});
+  const [username, setUsername] = useState('seppo');
   const [setOwner] = useState(null);
   const {getUserById} = useUser();
-
   const location = useLocation();
   console.log(location);
   const file = location.state.file;
@@ -37,6 +37,17 @@ const Single = () => {
     }
   };
 
+  const getUser = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      const user = await getUserById(file.user_id, token);
+      console.log(user);
+      setUsername(user.username);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const getCommentsit = async () => {
     try {
       const comments = await getComments(file.file_id);
@@ -47,10 +58,14 @@ const Single = () => {
   };
 
   useEffect(() => {
+    fetchAvatar();
+    getUser();
     const interval = setInterval(() => {
-      fetchAvatar();
       getCommentsit();
-    }, 100);
+    }, 100000);
+
+    console.log(avatar);
+
     (async () => {
       if (!open) {
         try {
@@ -66,11 +81,9 @@ const Single = () => {
         } catch (e) {
           console.log(e.message);
         }
-
         getCommentsit();
       }
     })();
-
     return () => clearInterval(interval);
   }, [open]);
 
@@ -96,12 +109,15 @@ const Single = () => {
               justifyContent="center"
               style={{maxWidth: '100%', maxHeight: '100%', minHeight: '90vh'}}
             >
-              <Typography variant="subtitle2">{file.user_id}</Typography>
-              <Typography component="h3" variant="h4">
-                {file.title}
+              <Typography marginBottom={2} component="h3" variant="h4">
+                {'@' + username}
               </Typography>
-              <Typography>{description}</Typography>
               <Grid
+                style={{
+                  marginTop: '2vh',
+                  border: '10px solid black',
+                  borderRadius: '20px',
+                }}
                 item
                 component={
                   file.media_type === 'image' ? 'img' : file.media_type
@@ -115,17 +131,27 @@ const Single = () => {
                   maxHeight: '30vh',
                 }}
               />{' '}
-              <List spacing={0} direction="column">
+              <Typography>{description}</Typography>
+              <List
+                style={{
+                  minWidth: '27%',
+                }}
+                spacing={0}
+                direction="column"
+              >
                 {comments?.map((singlecomment) => {
                   return (
                     <ListItem
                       style={{
-                        marginBottom: '0.2vh',
+                        marginTop: '0.5vh',
                         border: '4px solid black',
+                        borderRadius: '8px',
                       }}
                       key={singlecomment.comment_id}
                     >
-                      <Typography>{singlecomment.comment}</Typography>
+                      <Typography fontSize={'0.8rem'}>
+                        {singlecomment.comment}
+                      </Typography>
                     </ListItem>
                   );
                 })}

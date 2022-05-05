@@ -7,11 +7,11 @@ import {appID} from '../utils/variables';
 import {ValidatorForm, TextValidator} from 'react-material-ui-form-validator';
 import BackButton from '../components/BackButton';
 import {Box} from '@mui/system';
-import {motion} from 'framer-motion';
 
 const Upload = () => {
   const [preview, setPreview] = useState('logo192.png');
   const alkuarvot = {
+    title: '',
     description: '',
     file: null,
   };
@@ -75,102 +75,111 @@ const Upload = () => {
 
   return (
     <>
-      <motion.div
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        exit={{opacity: 0}}
-      >
-        <Grid container>
-          <Grid item xs={12}>
-            <BackButton />
-          </Grid>
+      <Grid container>
+        <Grid item xs={12}>
+          <BackButton />
+        </Grid>
 
-          <Grid
-            id="container"
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            backgroundColor="color5"
+        <Grid
+          id="container"
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+          backgroundColor="color5"
+          style={{
+            minHeight: '100vh',
+            width: '80vw',
+
+            margin: 'auto',
+          }}
+        >
+          <Typography
+            component="h1"
+            variant="h2"
+            gutterBottom
             style={{
-              minHeight: '100vh',
-              width: '80vw',
-              backgroundColor: 'white',
-              margin: 'auto',
+              marginTop: '100px',
+              marginBottom: '40px',
+              textAlign: 'center',
+              fontSize: '2em',
             }}
           >
-            <Typography
-              component="h1"
-              variant="h2"
-              gutterBottom
-              style={{
-                marginTop: '100px',
-                marginBottom: '40px',
-                textAlign: 'center',
-                fontSize: '2em',
+            Lisää julkaisu
+          </Typography>
+          <ValidatorForm onSubmit={handleSubmit}>
+            <TextValidator
+              type="file"
+              name="file"
+              accept="image/*, video/*, audio/*"
+              onChange={handleInputChange}
+              style={{marginBottom: '30px'}}
+              className="inputfield2"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: '4px solid black'},
+                },
               }}
-            >
-              Lisää julkaisu
-            </Typography>
-            <ValidatorForm onSubmit={handleSubmit}>
-              <TextValidator
-                type="file"
-                name="file"
-                accept="image/*, video/*, audio/*"
-                onChange={handleInputChange}
-                style={{marginBottom: '30px'}}
-                className="inputfield2"
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {border: 'none'},
-                  },
-                  '& label.Mui-focused': {
-                    display: 'none',
-                  },
-                }}
-              />
-              <Box style={{display: 'flex', justifyContent: 'center'}}>
-                <img
-                  style={{
-                    maxWidth: '40vw',
-                  }}
-                  src={preview}
-                  alt="preview"
-                />
-              </Box>
-
-              <TextValidator
-                placeholder="Kuvateksti"
-                name="description"
-                onChange={handleInputChange}
-                value={inputs.description}
-                validators={validators.description}
-                errorMessages={errorMessages.description}
+            />
+            <Box style={{display: 'flex', justifyContent: 'center'}}>
+              <img
                 style={{
-                  marginTop: '20px',
-                  marginBottom: '20px',
+                  maxWidth: '40vw',
                 }}
-                className="inputfield2"
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '& > fieldset': {border: 'none'},
-                  },
-                  '& label.Mui-focused': {
-                    display: 'none',
-                  },
-                }}
+                src={preview}
+                alt="preview"
               />
+            </Box>
 
-              <Box id="buttonbox">
+            <TextValidator
+              fullWidth
+              placeholder="Kuvateksti"
+              name="description"
+              label="kuvateksti"
+              onChange={handleInputChange}
+              value={inputs.description}
+              validators={validators.description}
+              errorMessages={errorMessages.description}
+              style={{
+                marginTop: '20px',
+                marginBottom: '20px',
+              }}
+              className="inputfield2"
+              sx={{
+                '& .MuiOutlinedInput-root': {
+                  '& > fieldset': {border: '4px solid black'},
+                },
+              }}
+            />
+
+            <Box id="buttonbox">
+              <Button
+                color="color5"
+                type="submit"
+                variant="contained"
+                className="deleteButton"
+                onClick={() => {
+                  navigate('/huutiset');
+                }}
+                style={{
+                  border: '4px solid black',
+                  minHeight: '5vh',
+                  minWidth: '5vh',
+                  marginTop: '17px',
+                }}
+              >
+                Peruuta
+              </Button>
+              {loading ? (
+                <CircularProgress />
+              ) : (
                 <Button
                   color="color5"
                   type="submit"
                   variant="contained"
-                  className="deleteButton"
-                  onClick={() => {
-                    navigate('/huutiset');
-                  }}
+                  disabled={!inputs.file}
+                  className="saveButton"
                   style={{
                     border: '4px solid black',
                     minHeight: '5vh',
@@ -178,32 +187,13 @@ const Upload = () => {
                     marginTop: '17px',
                   }}
                 >
-                  Peruuta
+                  Julkaise
                 </Button>
-                {loading ? (
-                  <CircularProgress />
-                ) : (
-                  <Button
-                    color="color5"
-                    type="submit"
-                    variant="contained"
-                    disabled={!inputs.file}
-                    className="saveButton"
-                    style={{
-                      border: '4px solid black',
-                      minHeight: '5vh',
-                      minWidth: '5vh',
-                      marginTop: '17px',
-                    }}
-                  >
-                    Julkaise
-                  </Button>
-                )}
-              </Box>
-            </ValidatorForm>
-          </Grid>
+              )}
+            </Box>
+          </ValidatorForm>
         </Grid>
-      </motion.div>
+      </Grid>
     </>
   );
 };

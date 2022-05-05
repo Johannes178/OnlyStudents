@@ -1,7 +1,7 @@
 import useForm from '../hooks/FormHooks';
 import {useComments} from '../hooks/ApiHooks';
 import PropTypes from 'prop-types';
-import {Button, TextField, Typography, Grid} from '@mui/material';
+import {Button, TextField, Typography, Grid, Stack} from '@mui/material';
 
 const CommentRow = (fileId, comment, deleteComments) => {
   // const {comment} = useContext(MediaContext);
@@ -47,20 +47,24 @@ const CommentRow = (fileId, comment, deleteComments) => {
         container
         spacing={0}
         direction="column"
-        alignItems="center"
         style={{
-          spacing: '3vh',
           maxWidth: '100%',
           minHeight: '8vh',
         }}
       >
         {' '}
-        <Grid marginTop="4vh" item xs={12}>
-          <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-            <Grid item xs={12}>
+        <Stack marginTop="4vh" item xs={12}>
+          <form
+            id="login"
+            noValidate
+            autoComplete="off"
+            onSubmit={handleSubmit}
+          >
+            <Stack spacing={1} direction={'row'} item xs={12}>
               <TextField
+                id="login"
                 name="comment"
-                className="inputfield"
+                className="inputfield2"
                 label="Mitä mielessä?"
                 rows={1}
                 onChange={(e) => handleInputChange(e)}
@@ -68,30 +72,29 @@ const CommentRow = (fileId, comment, deleteComments) => {
                 sx={{
                   '& .MuiOutlinedInput-root': {
                     '& > fieldset': {
-                      minHeight: '5vh',
-                      minWidth: '5vw',
                       border: '4px solid black',
+                    },
+                    '& label.Mui-focused': {
+                      display: 'none',
                     },
                   },
                 }}
               />
-            </Grid>
-            <Grid item xs={12}>
+
               <Button
                 color="color5"
                 type="submit"
                 variant="contained"
-                className="button"
-                style={{
+                className="saveButton"
+                sx={{
                   border: '4px solid black',
-                  minHeight: '5vh',
-                  minWidth: '5vw',
-                  marginTop: '2vh',
+                  minWidth: '2vw',
                 }}
               >
-                <Typography sx={{fontSize: '1rem'}}>Lisää kommentti</Typography>
+                <Typography sx={{fontSize: '0.8rem'}}>Lisää</Typography>
               </Button>
-            </Grid>
+            </Stack>
+
             {/*
             <Grid item xs={12}>
               <Button
@@ -114,7 +117,7 @@ const CommentRow = (fileId, comment, deleteComments) => {
 
               </Grid> */}
           </form>
-        </Grid>
+        </Stack>
       </Grid>
     </>
   );

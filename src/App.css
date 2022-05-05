@@ -42,6 +42,11 @@ body {
 * {
   box-sizing: border-box;
 }
+#buttonbox {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
 
 .button {
   box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000 !important;
@@ -74,17 +79,26 @@ body {
 }
 
 .inputfield2 {
-  border: 4px solid #ff5c00 !important;
   border-radius: 16px;
+  box-shadow: 6px 6px 0px 3px #ff5c00, 7px 7px 0px 6px #000;
   margin: 15px;
   width: 50vw;
 }
-
-#buttonbox {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
-}
 ::-webkit-scrollbar {
   display: none;
+}
+
+@media only screen and (max-width: 550px) {
+  .inputfield {
+    width: 70vw;
+  }
+
+  #buttonbox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
