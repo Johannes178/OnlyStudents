@@ -52,7 +52,7 @@ const Upload = () => {
       );
       confirm(tagData.message) && navigate('/huutiset');
     } catch (err) {
-      alert(err.message);
+      alert('Liian iso kuva, yritä uudelleen!');
     }
   };
 
